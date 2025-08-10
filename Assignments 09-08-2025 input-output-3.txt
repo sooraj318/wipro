@@ -1,0 +1,2963 @@
+----------------------------------------------------------------Assignment Input--------------------------------------------------------
+
+Clear-Host
+Get-CimInstance Win32_OperatingSystem
+Get-Command Get-CimInstance
+Get-Help Get-CimInstance
+Import-Module BitsTransfer
+Get-command Install-Module, Install-PSResource
+Get-Module
+Get-Module -ListAvailable
+#Get-Command -Module <module-name>
+Get-command —Module BitsTransfer
+Remove-Module BitsTransfer
+Get-command Get-Date, Get-Help -All | Select-object -Property Name, CommandType, Module ,PSSnapIn
+function Get-Date {
+    Microsoft.PowerShell.Utility\Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+}
+
+# Call your custom function
+Get-Date
+
+# Remove your custom function
+Remove-Item Function:Get-Date
+
+----------------------------------------------------------------Assignment Output--------------------------------------------------------
+
+SystemDirectory     Organization BuildNumber RegisteredUser SerialNumber            Version   
+---------------     ------------ ----------- -------------- ------------            -------   
+C:\WINDOWS\system32              26100       Sooraj B       00331-10000-00001-AA485 10.0.26100
+
+Verb                : Get
+Noun                : CimInstance
+HelpFile            : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\CimCmdlets\en-US\Microsoft.Management.Infrastructure.
+                      CimCmdlets.dll-help.xml
+PSSnapIn            : 
+Version             : 1.0.0.0
+ImplementingType    : Microsoft.Management.Infrastructure.CimCmdlets.GetCimInstanceCommand
+Definition          : 
+                      Get-CimInstance [-ClassName] <string> [-ComputerName <string[]>] [-KeyOnly] [-Namespace <string>] 
+                      [-OperationTimeoutSec <uint32>] [-QueryDialect <string>] [-Shallow] [-Filter <string>] [-Property 
+                      <string[]>] [<CommonParameters>]
+                      
+                      Get-CimInstance -CimSession <CimSession[]> -ResourceUri <uri> [-KeyOnly] [-Namespace <string>] 
+                      [-OperationTimeoutSec <uint32>] [-Shallow] [-Filter <string>] [-Property <string[]>] 
+                      [<CommonParameters>]
+                      
+                      Get-CimInstance -CimSession <CimSession[]> -Query <string> [-ResourceUri <uri>] [-Namespace <string>] 
+                      [-OperationTimeoutSec <uint32>] [-QueryDialect <string>] [-Shallow] [<CommonParameters>]
+                      
+                      Get-CimInstance [-ClassName] <string> -CimSession <CimSession[]> [-KeyOnly] [-Namespace <string>] 
+                      [-OperationTimeoutSec <uint32>] [-QueryDialect <string>] [-Shallow] [-Filter <string>] [-Property 
+                      <string[]>] [<CommonParameters>]
+                      
+                      Get-CimInstance [-InputObject] <ciminstance> -CimSession <CimSession[]> [-ResourceUri <uri>] 
+                      [-OperationTimeoutSec <uint32>] [<CommonParameters>]
+                      
+                      Get-CimInstance [-InputObject] <ciminstance> [-ResourceUri <uri>] [-ComputerName <string[]>] 
+                      [-OperationTimeoutSec <uint32>] [<CommonParameters>]
+                      
+                      Get-CimInstance -ResourceUri <uri> [-ComputerName <string[]>] [-KeyOnly] [-Namespace <string>] 
+                      [-OperationTimeoutSec <uint32>] [-Shallow] [-Filter <string>] [-Property <string[]>] 
+                      [<CommonParameters>]
+                      
+                      Get-CimInstance -Query <string> [-ResourceUri <uri>] [-ComputerName <string[]>] [-Namespace <string>] 
+                      [-OperationTimeoutSec <uint32>] [-QueryDialect <string>] [-Shallow] [<CommonParameters>]
+                      
+DefaultParameterSet : ClassNameComputerSet
+OutputType          : {Microsoft.Management.Infrastructure.CimInstance}
+Options             : ReadOnly
+Name                : Get-CimInstance
+CommandType         : Cmdlet
+Source              : CimCmdlets
+Visibility          : Public
+ModuleName          : CimCmdlets
+Module              : CimCmdlets
+RemotingCapability  : SupportedByCommand
+Parameters          : {[CimSession, System.Management.Automation.ParameterMetadata], [ClassName, 
+                      System.Management.Automation.ParameterMetadata], [ResourceUri, 
+                      System.Management.Automation.ParameterMetadata], [ComputerName, 
+                      System.Management.Automation.ParameterMetadata]...}
+ParameterSets       : {[-ClassName] <string> [-ComputerName <string[]>] [-KeyOnly] [-Namespace <string>] 
+                      [-OperationTimeoutSec <uint32>] [-QueryDialect <string>] [-Shallow] [-Filter <string>] [-Property 
+                      <string[]>] [<CommonParameters>], -CimSession <CimSession[]> -ResourceUri <uri> [-KeyOnly] [-Namespace 
+                      <string>] [-OperationTimeoutSec <uint32>] [-Shallow] [-Filter <string>] [-Property <string[]>] 
+                      [<CommonParameters>], -CimSession <CimSession[]> -Query <string> [-ResourceUri <uri>] [-Namespace 
+                      <string>] [-OperationTimeoutSec <uint32>] [-QueryDialect <string>] [-Shallow] [<CommonParameters>], 
+                      [-ClassName] <string> -CimSession <CimSession[]> [-KeyOnly] [-Namespace <string>] [-OperationTimeoutSec 
+                      <uint32>] [-QueryDialect <string>] [-Shallow] [-Filter <string>] [-Property <string[]>] 
+                      [<CommonParameters>]...}
+HelpUri             : https://go.microsoft.com/fwlink/?LinkId=227961
+DLL                 : C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\Microsoft.Management.Infrastructure.CimCmdlets\v4.0_1.0.0.0__
+                      31bf3856ad364e35\Microsoft.Management.Infrastructure.CimCmdlets.dll
+
+
+examples      : @{example=System.Management.Automation.PSObject[]}
+inputTypes    : @{inputType=@{type=@{name=Microsoft.Management.Infrastructure.CimInstance}; 
+                description=System.Management.Automation.PSObject[]}}
+alertSet      : @{alert=System.Management.Automation.PSObject[]}
+syntax        : @{syntaxItem=System.Management.Automation.PSObject[]}
+parameters    : @{parameter=System.Management.Automation.PSObject[]}
+details       : @{description=System.Management.Automation.PSObject[]; verb=Get; noun=CimInstance; name=Get-CimInstance}
+description   : {@{Text=The `Get-CimInstance` cmdlet gets the CIM instances of a class from a CIM server. You can specify 
+                either the class name or a query for this cmdlet. This cmdlet returns one or more CIM instance objects 
+                representing a snapshot of the CIM instances present on the CIM server.
+                }, @{Text=If the **InputObject** parameter is not specified, the cmdlet works in one of the following ways:
+                }, @{Text=- If neither the **ComputerName** parameter nor the **CimSession** parameter is specified, then 
+                this   cmdlet works on local Windows Management Instrumentation (WMI) using a Component Object Model   (COM) 
+                session. - If either the **ComputerName** parameter or the **CimSession** parameter is specified, then this   
+                cmdlet works against the CIM server specified by either the **ComputerName** parameter or the   
+                **CimSession** parameter.
+                }, @{Text=If the **InputObject** parameter is specified, the cmdlet works in one of the following ways:
+                }...}
+relatedLinks  : @{navigationLink=System.Management.Automation.PSObject[]}
+returnValues  : @{returnValue=@{type=@{name=Microsoft.Management.Infrastructure.CimInstance}; 
+                description=System.Management.Automation.PSObject[]}}
+Name          : Get-CimInstance
+Category      : Cmdlet
+Synopsis      : Gets the CIM instances of a class from a CIM server.
+Component     : 
+Role          : 
+Functionality : 
+PSSnapIn      : 
+ModuleName    : CimCmdlets
+
+Get-command : The term 'Install-PSResource' is not recognized as the name of a cmdlet, function, script file, or operable 
+program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:6 char:1
++ Get-command Install-Module, Install-PSResource
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Install-PSResource:String) [Get-Command], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException,Microsoft.PowerShell.Commands.GetCommandCommand
+ 
+
+ScriptBlock         : 
+                          <#
+                          .ExternalHelp PSGet.psm1-help.xml
+                          #>
+                          [CmdletBinding(DefaultParameterSetName='NameParameterSet',
+                                         HelpUri='https://go.microsoft.com/fwlink/?LinkID=398573',
+                                         SupportsShouldProcess=$true)]
+                          Param
+                          (
+                              [Parameter(Mandatory=$true, 
+                                         ValueFromPipelineByPropertyName=$true,
+                                         Position=0,
+                                         ParameterSetName='NameParameterSet')]
+                              [ValidateNotNullOrEmpty()]
+                              [string[]]
+                              $Name,
+                      
+                              [Parameter(Mandatory=$true, 
+                                         ValueFromPipeline=$true,
+                                         ValueFromPipelineByPropertyName=$true,
+                                         Position=0,
+                                         ParameterSetName='InputObject')]
+                              [ValidateNotNull()]
+                              [PSCustomObject[]]
+                              $InputObject,
+                      
+                              [Parameter(ValueFromPipelineByPropertyName=$true,
+                                         ParameterSetName='NameParameterSet')]
+                              [ValidateNotNull()]
+                              [Version]
+                              $MinimumVersion,
+                      
+                              [Parameter(ValueFromPipelineByPropertyName=$true,
+                                         ParameterSetName='NameParameterSet')]
+                              [ValidateNotNull()]
+                              [Version]
+                              $MaximumVersion,
+                              
+                              [Parameter(ValueFromPipelineByPropertyName=$true,
+                                         ParameterSetName='NameParameterSet')]
+                              [ValidateNotNull()]
+                              [Version]
+                              $RequiredVersion,
+                      
+                              [Parameter(ParameterSetName='NameParameterSet')]
+                              [ValidateNotNullOrEmpty()]
+                              [string[]]
+                              $Repository,
+                      
+                              [Parameter(ValueFromPipelineByPropertyName=$true)]
+                              [PSCredential]
+                              $Credential,
+                      
+                              [Parameter()] 
+                              [ValidateSet("CurrentUser","AllUsers")]
+                              [string]
+                              $Scope = "AllUsers",
+                      
+                              [Parameter(ValueFromPipelineByPropertyName=$true)]
+                              [ValidateNotNullOrEmpty()]
+                              [Uri]
+                              $Proxy,
+                      
+                              [Parameter(ValueFromPipelineByPropertyName=$true)]
+                              [PSCredential]
+                              $ProxyCredential,
+                      
+                              [Parameter()]
+                              [switch]
+                              $AllowClobber,
+                      
+                              [Parameter()]
+                              [switch]
+                              $SkipPublisherCheck,
+                      
+                              [Parameter()]
+                              [switch]
+                              $Force
+                          )
+                      
+                          Begin
+                          {
+                              Get-PSGalleryApiAvailability -Repository $Repository
+                              
+                              if(-not (Test-RunningAsElevated) -and ($Scope -ne "CurrentUser"))
+                              {
+                                  # Throw an error when Install-Module is used as a non-admin user and '-Scope CurrentUser' 
+                      is not specified
+                                  $message = $LocalizedData.InstallModuleNeedsCurrentUserScopeParameterForNonAdminUser -f 
+                      @($script:programFilesModulesPath, $script:MyDocumentsModulesPath)
+                      
+                                  ThrowError -ExceptionName "System.ArgumentException" `
+                                              -ExceptionMessage $message `
+                                              -ErrorId "InstallModuleNeedsCurrentUserScopeParameterForNonAdminUser" `
+                                              -CallerPSCmdlet $PSCmdlet `
+                                              -ErrorCategory InvalidArgument
+                              }
+                      
+                              Install-NuGetClientBinaries -CallerPSCmdlet $PSCmdlet -Proxy $Proxy -ProxyCredential 
+                      $ProxyCredential
+                      
+                              # Module names already tried in the current pipeline for InputObject parameterset
+                              $moduleNamesInPipeline = @()
+                              $YesToAll = $false
+                              $NoToAll = $false
+                              $SourceSGrantedTrust = @()
+                              $SourcesDeniedTrust = @()
+                          }
+                      
+                          Process
+                          {
+                              $RepositoryIsNotTrusted = $LocalizedData.RepositoryIsNotTrusted
+                              $QueryInstallUntrustedPackage = $LocalizedData.QueryInstallUntrustedPackage
+                              $PackageTarget = $LocalizedData.InstallModulewhatIfMessage
+                              	
+                              $PSBoundParameters["Provider"] = $script:PSModuleProviderName
+                              $PSBoundParameters["MessageResolver"] = 
+                      $script:PackageManagementInstallModuleMessageResolverScriptBlock
+                              $PSBoundParameters[$script:PSArtifactType] = $script:PSArtifactTypeModule
+                              $PSBoundParameters['Scope'] = $Scope
+                      
+                              if($PSCmdlet.ParameterSetName -eq "NameParameterSet")
+                              {
+                                  $ValidationResult = Validate-VersionParameters -CallerPSCmdlet $PSCmdlet `
+                                                                                 -Name $Name `
+                                                                                 -TestWildcardsInName `
+                                                                                 -MinimumVersion $MinimumVersion `
+                                                                                 -MaximumVersion $MaximumVersion `
+                                                                                 -RequiredVersion $RequiredVersion
+                      
+                                  if(-not $ValidationResult)
+                                  {
+                                      # Validate-VersionParameters throws the error. 
+                                      # returning to avoid further execution when different values are specified for 
+                      -ErrorAction parameter
+                                      return
+                                  }
+                      
+                                  if($PSBoundParameters.ContainsKey("Repository"))
+                                  {
+                                      $PSBoundParameters["Source"] = $Repository
+                                      $null = $PSBoundParameters.Remove("Repository")
+                      
+                                      $ev = $null
+                                      $null = Get-PSRepository -Name $Repository -ErrorVariable ev -verbose:$false
+                                      if($ev) { return }
+                                  }
+                      
+                                  $null = PackageManagement\Install-Package @PSBoundParameters
+                              }
+                              elseif($PSCmdlet.ParameterSetName -eq "InputObject")
+                              {
+                                  $null = $PSBoundParameters.Remove("InputObject")
+                      
+                                  foreach($inputValue in $InputObject)
+                                  {
+                                      if (($inputValue.PSTypeNames -notcontains 
+                      "Microsoft.PowerShell.Commands.PSRepositoryItemInfo") -and
+                                          ($inputValue.PSTypeNames -notcontains 
+                      "Deserialized.Microsoft.PowerShell.Commands.PSRepositoryItemInfo") -and
+                                          ($inputValue.PSTypeNames -notcontains 
+                      "Microsoft.PowerShell.Commands.PSGetCommandInfo") -and
+                                          ($inputValue.PSTypeNames -notcontains 
+                      "Deserialized.Microsoft.PowerShell.Commands.PSGetCommandInfo") -and
+                                          ($inputValue.PSTypeNames -notcontains 
+                      "Microsoft.PowerShell.Commands.PSGetDscResourceInfo") -and
+                                          ($inputValue.PSTypeNames -notcontains 
+                      "Deserialized.Microsoft.PowerShell.Commands.PSGetDscResourceInfo") -and
+                                          ($inputValue.PSTypeNames -notcontains 
+                      "Microsoft.PowerShell.Commands.PSGetRoleCapabilityInfo") -and
+                                          ($inputValue.PSTypeNames -notcontains 
+                      "Deserialized.Microsoft.PowerShell.Commands.PSGetRoleCapabilityInfo"))
+                                      {
+                                          ThrowError -ExceptionName "System.ArgumentException" `
+                                                      -ExceptionMessage $LocalizedData.InvalidInputObjectValue `
+                                                      -ErrorId "InvalidInputObjectValue" `
+                                                      -CallerPSCmdlet $PSCmdlet `
+                                                      -ErrorCategory InvalidArgument `
+                                                      -ExceptionObject $inputValue
+                                      }
+                                      
+                                      if( ($inputValue.PSTypeNames -contains 
+                      "Microsoft.PowerShell.Commands.PSGetDscResourceInfo") -or
+                                          ($inputValue.PSTypeNames -contains 
+                      "Deserialized.Microsoft.PowerShell.Commands.PSGetDscResourceInfo") -or
+                                          ($inputValue.PSTypeNames -contains 
+                      "Microsoft.PowerShell.Commands.PSGetCommandInfo") -or
+                                          ($inputValue.PSTypeNames -contains 
+                      "Deserialized.Microsoft.PowerShell.Commands.PSGetCommandInfo") -or                    
+                                          ($inputValue.PSTypeNames -contains 
+                      "Microsoft.PowerShell.Commands.PSGetRoleCapabilityInfo") -or
+                                          ($inputValue.PSTypeNames -contains 
+                      "Deserialized.Microsoft.PowerShell.Commands.PSGetRoleCapabilityInfo"))
+                                      {
+                                          $psgetModuleInfo = $inputValue.PSGetModuleInfo
+                                      }
+                                      else
+                                      {
+                                          $psgetModuleInfo = $inputValue                    
+                                      }
+                      
+                                      # Skip the module name if it is already tried in the current pipeline
+                                      if($moduleNamesInPipeline -contains $psgetModuleInfo.Name)
+                                      {
+                                          continue
+                                      }
+                      
+                                      $moduleNamesInPipeline += $psgetModuleInfo.Name
+                      
+                                      if ($psgetModuleInfo.PowerShellGetFormatVersion -and 
+                                          ($script:SupportedPSGetFormatVersionMajors -notcontains 
+                      $psgetModuleInfo.PowerShellGetFormatVersion.Major))
+                                      {
+                                          $message = $LocalizedData.NotSupportedPowerShellGetFormatVersion -f 
+                      ($psgetModuleInfo.Name, $psgetModuleInfo.PowerShellGetFormatVersion, $psgetModuleInfo.Name)
+                                          Write-Error -Message $message -ErrorId "NotSupportedPowerShellGetFormatVersion" 
+                      -Category InvalidOperation
+                                          continue
+                                      }
+                      
+                                      $PSBoundParameters["Name"] = $psgetModuleInfo.Name
+                                      $PSBoundParameters["RequiredVersion"] = $psgetModuleInfo.Version
+                                      $PSBoundParameters['Source'] = $psgetModuleInfo.Repository
+                                      $PSBoundParameters["PackageManagementProvider"] = (Get-ProviderName -PSCustomObject 
+                      $psgetModuleInfo)
+                      
+                                      #Check if module is already installed
+                                      $InstalledModuleInfo = Test-ModuleInstalled -Name $psgetModuleInfo.Name 
+                      -RequiredVersion  $psgetModuleInfo.Version                 
+                                      if(-not $Force -and $InstalledModuleInfo -ne $null)
+                                      {
+                                          $message = $LocalizedData.ModuleAlreadyInstalledVerbose -f 
+                      ($InstalledModuleInfo.Version, $InstalledModuleInfo.Name, $InstalledModuleInfo.ModuleBase)
+                                          Write-Verbose -Message $message
+                                      }
+                                      else
+                                      {
+                                          $source =  $psgetModuleInfo.Repository
+                                          $installationPolicy = (Get-PSRepository -Name $source).InstallationPolicy           
+                           
+                                          $ShouldProcessMessage = $PackageTarget -f ($psgetModuleInfo.Name, 
+                      $psgetModuleInfo.Version)
+                                      
+                                          if($psCmdlet.ShouldProcess($ShouldProcessMessage))
+                                          {
+                                              if($installationPolicy.Equals("Untrusted", 
+                      [StringComparison]::OrdinalIgnoreCase))
+                                              {
+                          	                    if(-not($YesToAll -or $NoToAll -or $SourceSGrantedTrust.Contains($source) -or 
+                      $sourcesDeniedTrust.Contains($source) -or $Force))   
+                                                  {
+                      	                            $message = $QueryInstallUntrustedPackage -f ($psgetModuleInfo.Name, 
+                      $psgetModuleInfo.RepositorySourceLocation)
+                                                      if($PSVersionTable.PSVersion -ge '5.0.0')
+                                                      {
+                                                           $sourceTrusted = $psCmdlet.ShouldContinue("$message", 
+                      "$RepositoryIsNotTrusted",$true, [ref]$YesToAll, [ref]$NoToAll)
+                                                      }
+                                                      else
+                                                      {
+                                                          $sourceTrusted = $psCmdlet.ShouldContinue("$message", 
+                      "$RepositoryIsNotTrusted", [ref]$YesToAll, [ref]$NoToAll)
+                                                      }                               
+                      
+                                                      if($sourceTrusted)
+                                                      {
+                                                          $SourceSGrantedTrust+=$source
+                                                      }
+                                                      else
+                                                      {
+                                                          $SourcesDeniedTrust+=$source
+                                                      }
+                                                  }
+                                              }
+                                              
+                                              if($installationPolicy.Equals("trusted", [StringComparison]::OrdinalIgnoreCase) 
+                      -or $SourceSGrantedTrust.Contains($source) -or $YesToAll -or $Force)
+                                              {
+                                                  $PSBoundParameters["Force"] = $true                        
+                      	                        $null = PackageManagement\Install-Package @PSBoundParameters
+                                              }                                  
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      
+CmdletBinding       : True
+DefaultParameterSet : NameParameterSet
+Definition          : 
+                          <#
+                          .ExternalHelp PSGet.psm1-help.xml
+                          #>
+                          [CmdletBinding(DefaultParameterSetName='NameParameterSet',
+                                         HelpUri='https://go.microsoft.com/fwlink/?LinkID=398573',
+                                         SupportsShouldProcess=$true)]
+                          Param
+                          (
+                              [Parameter(Mandatory=$true, 
+                                         ValueFromPipelineByPropertyName=$true,
+                                         Position=0,
+                                         ParameterSetName='NameParameterSet')]
+                              [ValidateNotNullOrEmpty()]
+                              [string[]]
+                              $Name,
+                      
+                              [Parameter(Mandatory=$true, 
+                                         ValueFromPipeline=$true,
+                                         ValueFromPipelineByPropertyName=$true,
+                                         Position=0,
+                                         ParameterSetName='InputObject')]
+                              [ValidateNotNull()]
+                              [PSCustomObject[]]
+                              $InputObject,
+                      
+                              [Parameter(ValueFromPipelineByPropertyName=$true,
+                                         ParameterSetName='NameParameterSet')]
+                              [ValidateNotNull()]
+                              [Version]
+                              $MinimumVersion,
+                      
+                              [Parameter(ValueFromPipelineByPropertyName=$true,
+                                         ParameterSetName='NameParameterSet')]
+                              [ValidateNotNull()]
+                              [Version]
+                              $MaximumVersion,
+                              
+                              [Parameter(ValueFromPipelineByPropertyName=$true,
+                                         ParameterSetName='NameParameterSet')]
+                              [ValidateNotNull()]
+                              [Version]
+                              $RequiredVersion,
+                      
+                              [Parameter(ParameterSetName='NameParameterSet')]
+                              [ValidateNotNullOrEmpty()]
+                              [string[]]
+                              $Repository,
+                      
+                              [Parameter(ValueFromPipelineByPropertyName=$true)]
+                              [PSCredential]
+                              $Credential,
+                      
+                              [Parameter()] 
+                              [ValidateSet("CurrentUser","AllUsers")]
+                              [string]
+                              $Scope = "AllUsers",
+                      
+                              [Parameter(ValueFromPipelineByPropertyName=$true)]
+                              [ValidateNotNullOrEmpty()]
+                              [Uri]
+                              $Proxy,
+                      
+                              [Parameter(ValueFromPipelineByPropertyName=$true)]
+                              [PSCredential]
+                              $ProxyCredential,
+                      
+                              [Parameter()]
+                              [switch]
+                              $AllowClobber,
+                      
+                              [Parameter()]
+                              [switch]
+                              $SkipPublisherCheck,
+                      
+                              [Parameter()]
+                              [switch]
+                              $Force
+                          )
+                      
+                          Begin
+                          {
+                              Get-PSGalleryApiAvailability -Repository $Repository
+                              
+                              if(-not (Test-RunningAsElevated) -and ($Scope -ne "CurrentUser"))
+                              {
+                                  # Throw an error when Install-Module is used as a non-admin user and '-Scope CurrentUser' 
+                      is not specified
+                                  $message = $LocalizedData.InstallModuleNeedsCurrentUserScopeParameterForNonAdminUser -f 
+                      @($script:programFilesModulesPath, $script:MyDocumentsModulesPath)
+                      
+                                  ThrowError -ExceptionName "System.ArgumentException" `
+                                              -ExceptionMessage $message `
+                                              -ErrorId "InstallModuleNeedsCurrentUserScopeParameterForNonAdminUser" `
+                                              -CallerPSCmdlet $PSCmdlet `
+                                              -ErrorCategory InvalidArgument
+                              }
+                      
+                              Install-NuGetClientBinaries -CallerPSCmdlet $PSCmdlet -Proxy $Proxy -ProxyCredential 
+                      $ProxyCredential
+                      
+                              # Module names already tried in the current pipeline for InputObject parameterset
+                              $moduleNamesInPipeline = @()
+                              $YesToAll = $false
+                              $NoToAll = $false
+                              $SourceSGrantedTrust = @()
+                              $SourcesDeniedTrust = @()
+                          }
+                      
+                          Process
+                          {
+                              $RepositoryIsNotTrusted = $LocalizedData.RepositoryIsNotTrusted
+                              $QueryInstallUntrustedPackage = $LocalizedData.QueryInstallUntrustedPackage
+                              $PackageTarget = $LocalizedData.InstallModulewhatIfMessage
+                              	
+                              $PSBoundParameters["Provider"] = $script:PSModuleProviderName
+                              $PSBoundParameters["MessageResolver"] = 
+                      $script:PackageManagementInstallModuleMessageResolverScriptBlock
+                              $PSBoundParameters[$script:PSArtifactType] = $script:PSArtifactTypeModule
+                              $PSBoundParameters['Scope'] = $Scope
+                      
+                              if($PSCmdlet.ParameterSetName -eq "NameParameterSet")
+                              {
+                                  $ValidationResult = Validate-VersionParameters -CallerPSCmdlet $PSCmdlet `
+                                                                                 -Name $Name `
+                                                                                 -TestWildcardsInName `
+                                                                                 -MinimumVersion $MinimumVersion `
+                                                                                 -MaximumVersion $MaximumVersion `
+                                                                                 -RequiredVersion $RequiredVersion
+                      
+                                  if(-not $ValidationResult)
+                                  {
+                                      # Validate-VersionParameters throws the error. 
+                                      # returning to avoid further execution when different values are specified for 
+                      -ErrorAction parameter
+                                      return
+                                  }
+                      
+                                  if($PSBoundParameters.ContainsKey("Repository"))
+                                  {
+                                      $PSBoundParameters["Source"] = $Repository
+                                      $null = $PSBoundParameters.Remove("Repository")
+                      
+                                      $ev = $null
+                                      $null = Get-PSRepository -Name $Repository -ErrorVariable ev -verbose:$false
+                                      if($ev) { return }
+                                  }
+                      
+                                  $null = PackageManagement\Install-Package @PSBoundParameters
+                              }
+                              elseif($PSCmdlet.ParameterSetName -eq "InputObject")
+                              {
+                                  $null = $PSBoundParameters.Remove("InputObject")
+                      
+                                  foreach($inputValue in $InputObject)
+                                  {
+                                      if (($inputValue.PSTypeNames -notcontains 
+                      "Microsoft.PowerShell.Commands.PSRepositoryItemInfo") -and
+                                          ($inputValue.PSTypeNames -notcontains 
+                      "Deserialized.Microsoft.PowerShell.Commands.PSRepositoryItemInfo") -and
+                                          ($inputValue.PSTypeNames -notcontains 
+                      "Microsoft.PowerShell.Commands.PSGetCommandInfo") -and
+                                          ($inputValue.PSTypeNames -notcontains 
+                      "Deserialized.Microsoft.PowerShell.Commands.PSGetCommandInfo") -and
+                                          ($inputValue.PSTypeNames -notcontains 
+                      "Microsoft.PowerShell.Commands.PSGetDscResourceInfo") -and
+                                          ($inputValue.PSTypeNames -notcontains 
+                      "Deserialized.Microsoft.PowerShell.Commands.PSGetDscResourceInfo") -and
+                                          ($inputValue.PSTypeNames -notcontains 
+                      "Microsoft.PowerShell.Commands.PSGetRoleCapabilityInfo") -and
+                                          ($inputValue.PSTypeNames -notcontains 
+                      "Deserialized.Microsoft.PowerShell.Commands.PSGetRoleCapabilityInfo"))
+                                      {
+                                          ThrowError -ExceptionName "System.ArgumentException" `
+                                                      -ExceptionMessage $LocalizedData.InvalidInputObjectValue `
+                                                      -ErrorId "InvalidInputObjectValue" `
+                                                      -CallerPSCmdlet $PSCmdlet `
+                                                      -ErrorCategory InvalidArgument `
+                                                      -ExceptionObject $inputValue
+                                      }
+                                      
+                                      if( ($inputValue.PSTypeNames -contains 
+                      "Microsoft.PowerShell.Commands.PSGetDscResourceInfo") -or
+                                          ($inputValue.PSTypeNames -contains 
+                      "Deserialized.Microsoft.PowerShell.Commands.PSGetDscResourceInfo") -or
+                                          ($inputValue.PSTypeNames -contains 
+                      "Microsoft.PowerShell.Commands.PSGetCommandInfo") -or
+                                          ($inputValue.PSTypeNames -contains 
+                      "Deserialized.Microsoft.PowerShell.Commands.PSGetCommandInfo") -or                    
+                                          ($inputValue.PSTypeNames -contains 
+                      "Microsoft.PowerShell.Commands.PSGetRoleCapabilityInfo") -or
+                                          ($inputValue.PSTypeNames -contains 
+                      "Deserialized.Microsoft.PowerShell.Commands.PSGetRoleCapabilityInfo"))
+                                      {
+                                          $psgetModuleInfo = $inputValue.PSGetModuleInfo
+                                      }
+                                      else
+                                      {
+                                          $psgetModuleInfo = $inputValue                    
+                                      }
+                      
+                                      # Skip the module name if it is already tried in the current pipeline
+                                      if($moduleNamesInPipeline -contains $psgetModuleInfo.Name)
+                                      {
+                                          continue
+                                      }
+                      
+                                      $moduleNamesInPipeline += $psgetModuleInfo.Name
+                      
+                                      if ($psgetModuleInfo.PowerShellGetFormatVersion -and 
+                                          ($script:SupportedPSGetFormatVersionMajors -notcontains 
+                      $psgetModuleInfo.PowerShellGetFormatVersion.Major))
+                                      {
+                                          $message = $LocalizedData.NotSupportedPowerShellGetFormatVersion -f 
+                      ($psgetModuleInfo.Name, $psgetModuleInfo.PowerShellGetFormatVersion, $psgetModuleInfo.Name)
+                                          Write-Error -Message $message -ErrorId "NotSupportedPowerShellGetFormatVersion" 
+                      -Category InvalidOperation
+                                          continue
+                                      }
+                      
+                                      $PSBoundParameters["Name"] = $psgetModuleInfo.Name
+                                      $PSBoundParameters["RequiredVersion"] = $psgetModuleInfo.Version
+                                      $PSBoundParameters['Source'] = $psgetModuleInfo.Repository
+                                      $PSBoundParameters["PackageManagementProvider"] = (Get-ProviderName -PSCustomObject 
+                      $psgetModuleInfo)
+                      
+                                      #Check if module is already installed
+                                      $InstalledModuleInfo = Test-ModuleInstalled -Name $psgetModuleInfo.Name 
+                      -RequiredVersion  $psgetModuleInfo.Version                 
+                                      if(-not $Force -and $InstalledModuleInfo -ne $null)
+                                      {
+                                          $message = $LocalizedData.ModuleAlreadyInstalledVerbose -f 
+                      ($InstalledModuleInfo.Version, $InstalledModuleInfo.Name, $InstalledModuleInfo.ModuleBase)
+                                          Write-Verbose -Message $message
+                                      }
+                                      else
+                                      {
+                                          $source =  $psgetModuleInfo.Repository
+                                          $installationPolicy = (Get-PSRepository -Name $source).InstallationPolicy           
+                           
+                                          $ShouldProcessMessage = $PackageTarget -f ($psgetModuleInfo.Name, 
+                      $psgetModuleInfo.Version)
+                                      
+                                          if($psCmdlet.ShouldProcess($ShouldProcessMessage))
+                                          {
+                                              if($installationPolicy.Equals("Untrusted", 
+                      [StringComparison]::OrdinalIgnoreCase))
+                                              {
+                          	                    if(-not($YesToAll -or $NoToAll -or $SourceSGrantedTrust.Contains($source) -or 
+                      $sourcesDeniedTrust.Contains($source) -or $Force))   
+                                                  {
+                      	                            $message = $QueryInstallUntrustedPackage -f ($psgetModuleInfo.Name, 
+                      $psgetModuleInfo.RepositorySourceLocation)
+                                                      if($PSVersionTable.PSVersion -ge '5.0.0')
+                                                      {
+                                                           $sourceTrusted = $psCmdlet.ShouldContinue("$message", 
+                      "$RepositoryIsNotTrusted",$true, [ref]$YesToAll, [ref]$NoToAll)
+                                                      }
+                                                      else
+                                                      {
+                                                          $sourceTrusted = $psCmdlet.ShouldContinue("$message", 
+                      "$RepositoryIsNotTrusted", [ref]$YesToAll, [ref]$NoToAll)
+                                                      }                               
+                      
+                                                      if($sourceTrusted)
+                                                      {
+                                                          $SourceSGrantedTrust+=$source
+                                                      }
+                                                      else
+                                                      {
+                                                          $SourcesDeniedTrust+=$source
+                                                      }
+                                                  }
+                                              }
+                                              
+                                              if($installationPolicy.Equals("trusted", [StringComparison]::OrdinalIgnoreCase) 
+                      -or $SourceSGrantedTrust.Contains($source) -or $YesToAll -or $Force)
+                                              {
+                                                  $PSBoundParameters["Force"] = $true                        
+                      	                        $null = PackageManagement\Install-Package @PSBoundParameters
+                                              }                                  
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      
+Options             : None
+Description         : 
+Verb                : Install
+Noun                : Module
+HelpFile            : 
+OutputType          : {}
+Name                : Install-Module
+CommandType         : Function
+Source              : PowerShellGet
+Version             : 1.0.0.1
+Visibility          : Public
+ModuleName          : PowerShellGet
+Module              : PowerShellGet
+RemotingCapability  : PowerShell
+Parameters          : {[Name, System.Management.Automation.ParameterMetadata], [InputObject, 
+                      System.Management.Automation.ParameterMetadata], [MinimumVersion, 
+                      System.Management.Automation.ParameterMetadata], [MaximumVersion, 
+                      System.Management.Automation.ParameterMetadata]...}
+ParameterSets       : {[-Name] <string[]> [-MinimumVersion <version>] [-MaximumVersion <version>] [-RequiredVersion 
+                      <version>] [-Repository <string[]>] [-Credential <pscredential>] [-Scope <string>] [-Proxy <uri>] 
+                      [-ProxyCredential <pscredential>] [-AllowClobber] [-SkipPublisherCheck] [-Force] [-WhatIf] [-Confirm] 
+                      [<CommonParameters>], [-InputObject] <psobject[]> [-Credential <pscredential>] [-Scope <string>] 
+                      [-Proxy <uri>] [-ProxyCredential <pscredential>] [-AllowClobber] [-SkipPublisherCheck] [-Force] 
+                      [-WhatIf] [-Confirm] [<CommonParameters>]}
+HelpUri             : https://go.microsoft.com/fwlink/?LinkID=398573
+
+
+Name              : BitsTransfer
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\BitsTransfer\BitsTransfer.psm1
+Description       : 
+Guid              : 8fa5064b-8479-4c5c-86ea-0d311fe48875
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\BitsTransfer
+ModuleType        : Script
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Add-BitsFile, Add-BitsFile], [Complete-BitsTransfer, Complete-BitsTransfer], [Get-BitsTransfer, 
+                    Get-BitsTransfer], [Remove-BitsTransfer, Remove-BitsTransfer]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {Microsoft.BackgroundIntelligentTransfer.Management.Interop, 
+                    Microsoft.BackgroundIntelligentTransfer.Management}
+
+
+Name              : CimCmdlets
+Path              : C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\Microsoft.Management.Infrastructure.CimCmdlets\v4.0_1.0.0.0__31
+                    bf3856ad364e35\Microsoft.Management.Infrastructure.CimCmdlets.dll
+Description       : 
+Guid              : fb6cc51d-c096-4b38-b78d-0fed6277096a
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\CimCmdlets
+ModuleType        : Binary
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Export-BinaryMiLog, Export-BinaryMiLog], [Get-CimAssociatedInstance, Get-CimAssociatedInstance], 
+                    [Get-CimClass, Get-CimClass], [Get-CimInstance, Get-CimInstance]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : DnsClient
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\DnsClient\DnsClient.psd1
+Description       : 
+Guid              : 5696d5ef-fa2d-4997-94f1-0bc13daa2ac5
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\DnsClient
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Resolve-DnsName, Resolve-DnsName]}
+ExportedFunctions : {[Add-DnsClientDohServerAddress, Add-DnsClientDohServerAddress], [Add-DnsClientNrptRule, 
+                    Add-DnsClientNrptRule], [Clear-DnsClientCache, Clear-DnsClientCache], [Get-DnsClient, Get-DnsClient]...}
+ExportedVariables : {}
+NestedModules     : {dnslookup, MSFT_DnsClient, MSFT_DnsClientCache, MSFT_DnsClientGlobalSetting...}
+
+
+Name              : ISE
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\ISE\ISE.psm1
+Description       : 
+Guid              : bae93d8e-782c-4a23-b87f-8699bfc17ee0
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\ISE
+ModuleType        : Script
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-IseSnippet, Get-IseSnippet], [Import-IseSnippet, Import-IseSnippet], [New-IseSnippet, 
+                    New-IseSnippet]}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : Microsoft.PowerShell.Management
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.Management\Microsoft.PowerShell.Ma
+                    nagement.psd1
+Description       : 
+Guid              : eefcb906-b326-4e99-9f54-8b4bb6ef3c6d
+Version           : 3.1.0.0
+ModuleBase        : C:\Windows\System32\WindowsPowerShell\v1.0
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[gcb, gcb], [gin, gin], [gtz, gtz], [scb, scb]...}
+ExportedCmdlets   : {[Add-Computer, Add-Computer], [Add-Content, Add-Content], [Checkpoint-Computer, Checkpoint-Computer], 
+                    [Clear-Content, Clear-Content]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {Microsoft.PowerShell.Commands.Management.dll}
+
+
+Name              : Microsoft.PowerShell.Security
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.Security\Microsoft.PowerShell.Secu
+                    rity.psd1
+Description       : 
+Guid              : a94c8c7e-9810-47c0-b8af-65089c13a35a
+Version           : 3.0.0.0
+ModuleBase        : C:\Windows\System32\WindowsPowerShell\v1.0
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[ConvertFrom-SecureString, ConvertFrom-SecureString], [ConvertTo-SecureString, ConvertTo-SecureString], 
+                    [Get-Acl, Get-Acl], [Get-AuthenticodeSignature, Get-AuthenticodeSignature]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {Microsoft.PowerShell.Security.dll}
+
+
+Name              : Microsoft.PowerShell.Utility
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.Utility\Microsoft.PowerShell.Utili
+                    ty.psd1
+Description       : 
+Guid              : 1da87e53-152b-403e-98dc-74d7b4d63d59
+Version           : 3.1.0.0
+ModuleBase        : C:\Windows\System32\WindowsPowerShell\v1.0
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[CFS, CFS], [fhx, fhx]}
+ExportedCmdlets   : {[Add-Member, Add-Member], [Add-Type, Add-Type], [Clear-Variable, Clear-Variable], [Compare-Object, 
+                    Compare-Object]...}
+ExportedFunctions : {[ConvertFrom-SddlString, ConvertFrom-SddlString], [Format-Hex, Format-Hex], [Get-FileHash, 
+                    Get-FileHash], [Import-PowerShellDataFile, Import-PowerShellDataFile]...}
+ExportedVariables : {}
+NestedModules     : {Microsoft.PowerShell.Commands.Utility.dll, Microsoft.PowerShell.Utility}
+
+
+Name              : Microsoft.WSMan.Management
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.WSMan.Management\Microsoft.WSMan.Management.p
+                    sd1
+Description       : 
+Guid              : 766204a6-330e-4263-a7ab-46c87afc366c
+Version           : 3.0.0.0
+ModuleBase        : C:\Windows\System32\WindowsPowerShell\v1.0
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Connect-WSMan, Connect-WSMan], [Disable-WSManCredSSP, Disable-WSManCredSSP], [Disconnect-WSMan, 
+                    Disconnect-WSMan], [Enable-WSManCredSSP, Enable-WSManCredSSP]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {Microsoft.WSMan.Management.dll}
+
+
+Name              : NetAdapter
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetAdapter\NetAdapter.psd1
+Description       : 
+Guid              : 1042b422-63a8-4016-a6d6-293e19e8f8a6
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetAdapter
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Disable-NetAdapter, Disable-NetAdapter], [Disable-NetAdapterBinding, Disable-NetAdapterBinding], 
+                    [Disable-NetAdapterChecksumOffload, Disable-NetAdapterChecksumOffload], 
+                    [Disable-NetAdapterEncapsulatedPacketTaskOffload, Disable-NetAdapterEncapsulatedPacketTaskOffload]...}
+ExportedVariables : {}
+NestedModules     : {MSFT_NetAdapter.cmdletDefinition, MSFT_NetAdapterAdvancedProperty.cmdletDefinition, 
+                    MSFT_NetAdapterBinding.cmdletDefinition, MSFT_NetAdapterChecksumOffload...}
+
+
+Name              : NetConnection
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetConnection\NetConnection.psd1
+Description       : 
+Guid              : ce4ff86e-9416-4f2d-a869-c860ac543b5e
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetConnection
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-NetConnectionProfile, Get-NetConnectionProfile], [Set-NetConnectionProfile, 
+                    Set-NetConnectionProfile]}
+ExportedVariables : {}
+NestedModules     : {MSFT_NetConnectionProfile}
+
+
+Name              : NetSecurity
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetSecurity\NetSecurity.psd1
+Description       : 
+Guid              : 4b26ff51-7aee-4731-9cf7-508b82532cbf
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetSecurity
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Get-DAPolicyChange, Get-DAPolicyChange], [New-NetIPsecAuthProposal, New-NetIPsecAuthProposal], 
+                    [New-NetIPsecMainModeCryptoProposal, New-NetIPsecMainModeCryptoProposal], 
+                    [New-NetIPsecQuickModeCryptoProposal, New-NetIPsecQuickModeCryptoProposal]}
+ExportedFunctions : {[Copy-NetFirewallRule, Copy-NetFirewallRule], [Copy-NetIPsecMainModeCryptoSet, 
+                    Copy-NetIPsecMainModeCryptoSet], [Copy-NetIPsecMainModeRule, Copy-NetIPsecMainModeRule], 
+                    [Copy-NetIPsecPhase1AuthSet, Copy-NetIPsecPhase1AuthSet]...}
+ExportedVariables : {}
+NestedModules     : {Microsoft.Windows.Firewall.Commands, NetFirewallHyperVRule.cmdletDefinitIon, 
+                    NetFirewallRule.cmdletDefinition, NetIPsecRule.cmdletDefinition...}
+
+
+Name              : NetTCPIP
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetTCPIP\NetTCPIP.psd1
+Description       : 
+Guid              : 2d0b6c7f-16a0-4185-843f-ae47b6db4551
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetTCPIP
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[gip, gip], [TNC, TNC]}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Find-NetRoute, Find-NetRoute], [Get-NetCompartment, Get-NetCompartment], [Get-NetIPAddress, 
+                    Get-NetIPAddress], [Get-NetIPConfiguration, Get-NetIPConfiguration]...}
+ExportedVariables : {}
+NestedModules     : {MSFT_NetCompartment, MSFT_NetIPAddress, MSFT_NetIPInterface, MSFT_NetIPv4Protocol...}
+
+
+Name              : PackageManagement
+Path              : C:\Program 
+                    Files\WindowsPowerShell\Modules\PackageManagement\1.0.0.1\Microsoft.PowerShell.PackageManagement.dll
+Description       : PackageManagement (a.k.a. OneGet) is a new way to discover and install software packages from around the 
+                    web. 
+                     It is a manager or multiplexor of existing package managers (also called package providers) that unifies 
+                    Windows package management with a single Windows PowerShell interface. With PackageManagement, you can do 
+                    the following. 
+                      - Manage a list of software repositories in which packages can be searched, acquired and installed 
+                      - Discover software packages 
+                      - Seamlessly install, uninstall, and inventory packages from one or more software repositories
+Guid              : 4ae9fd46-338a-459c-8186-07f910774cb8
+Version           : 1.0.0.1
+ModuleBase        : C:\Program Files\WindowsPowerShell\Modules\PackageManagement\1.0.0.1
+ModuleType        : Binary
+PrivateData       : {PSData}
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Find-Package, Find-Package], [Find-PackageProvider, Find-PackageProvider], [Get-Package, Get-Package], 
+                    [Get-PackageProvider, Get-PackageProvider]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : PowerShellGet
+Path              : C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PSModule.psm1
+Description       : PowerShell module with commands for discovering, installing, updating and publishing the PowerShell 
+                    artifacts like Modules, DSC Resources, Role Capabilities and Scripts.
+Guid              : 1d73a601-4a6c-43c5-ba3f-619b18bbb404
+Version           : 1.0.0.1
+ModuleBase        : C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1
+ModuleType        : Script
+PrivateData       : {PSData, SupportedPowerShellGetFormatVersions, PackageManagementProviders}
+AccessMode        : ReadWrite
+ExportedAliases   : {[fimo, fimo], [inmo, inmo], [pumo, pumo], [upmo, upmo]}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Find-Command, Find-Command], [Find-DscResource, Find-DscResource], [Find-Module, Find-Module], 
+                    [Find-RoleCapability, Find-RoleCapability]...}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : Microsoft.PowerShell.Operation.Validation
+Path              : C:\Program Files\WindowsPowerShell\Modules\Microsoft.PowerShell.Operation.Validation\1.0.1\Microsoft.Power
+                    Shell.Operation.Validation.psd1
+Description       : 
+Guid              : 25bd9e34-bff9-4552-a23d-854857b42462
+Version           : 1.0.1
+ModuleBase        : C:\Program Files\WindowsPowerShell\Modules\Microsoft.PowerShell.Operation.Validation\1.0.1
+ModuleType        : Script
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-OperationValidation, Get-OperationValidation], [Invoke-OperationValidation, 
+                    Invoke-OperationValidation]}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : PackageManagement
+Path              : C:\Program Files\WindowsPowerShell\Modules\PackageManagement\1.0.0.1\PackageManagement.psd1
+Description       : PackageManagement (a.k.a. OneGet) is a new way to discover and install software packages from around the 
+                    web. 
+                     It is a manager or multiplexor of existing package managers (also called package providers) that unifies 
+                    Windows package management with a single Windows PowerShell interface. With PackageManagement, you can do 
+                    the following. 
+                      - Manage a list of software repositories in which packages can be searched, acquired and installed 
+                      - Discover software packages 
+                      - Seamlessly install, uninstall, and inventory packages from one or more software repositories
+Guid              : 4ae9fd46-338a-459c-8186-07f910774cb8
+Version           : 1.0.0.1
+ModuleBase        : C:\Program Files\WindowsPowerShell\Modules\PackageManagement\1.0.0.1
+ModuleType        : Binary
+PrivateData       : {PSData}
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Find-Package, Find-Package], [Get-Package, Get-Package], [Get-PackageProvider, Get-PackageProvider], 
+                    [Get-PackageSource, Get-PackageSource]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : Pester
+Path              : C:\Program Files\WindowsPowerShell\Modules\Pester\3.4.0\Pester.psd1
+Description       : Pester provides a framework for running BDD style Tests to execute and validate PowerShell commands 
+                    inside of PowerShell and offers a powerful set of Mocking Functions that allow tests to mimic and mock 
+                    the functionality of any command inside of a piece of powershell code being tested. Pester tests can 
+                    execute any command or script that is accesible to a pester test file. This can include functions, 
+                    Cmdlets, Modules and scripts. Pester can be run in ad hoc style in a console or it can be integrated into 
+                    the Build scripts of a Continuous Integration system.
+Guid              : a699dea5-2c73-4616-a270-1f7abb777e71
+Version           : 3.4.0
+ModuleBase        : C:\Program Files\WindowsPowerShell\Modules\Pester\3.4.0
+ModuleType        : Script
+PrivateData       : {PSData}
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Describe, Describe], [Context, Context], [It, It], [Should, Should]...}
+ExportedVariables : {[Path, ], [TagFilter, ], [ExcludeTagFilter, ], [TestNameFilter, ]...}
+NestedModules     : {}
+
+
+Name              : PowerShellGet
+Path              : C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1\PowerShellGet.psd1
+Description       : PowerShell module with commands for discovering, installing, updating and publishing the PowerShell 
+                    artifacts like Modules, DSC Resources, Role Capabilities and Scripts.
+Guid              : 1d73a601-4a6c-43c5-ba3f-619b18bbb404
+Version           : 1.0.0.1
+ModuleBase        : C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\1.0.0.1
+ModuleType        : Script
+PrivateData       : {PSData, SupportedPowerShellGetFormatVersions, PackageManagementProviders}
+AccessMode        : ReadWrite
+ExportedAliases   : {[inmo, inmo], [fimo, fimo], [upmo, upmo], [pumo, pumo]}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Install-Module, Install-Module], [Find-Module, Find-Module], [Save-Module, Save-Module], 
+                    [Update-Module, Update-Module]...}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : PSReadLine
+Path              : C:\Program Files\WindowsPowerShell\Modules\PSReadLine\2.0.0\PSReadLine.psd1
+Description       : Great command line editing in the PowerShell console host
+Guid              : 5714753b-2afd-4492-a5fd-01d9e2cff8b5
+Version           : 2.0.0
+ModuleBase        : C:\Program Files\WindowsPowerShell\Modules\PSReadLine\2.0.0
+ModuleType        : Script
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Get-PSReadLineKeyHandler, Get-PSReadLineKeyHandler], [Set-PSReadLineKeyHandler, 
+                    Set-PSReadLineKeyHandler], [Remove-PSReadLineKeyHandler, Remove-PSReadLineKeyHandler], 
+                    [Get-PSReadLineOption, Get-PSReadLineOption]...}
+ExportedFunctions : {[PSConsoleHostReadLine, PSConsoleHostReadLine]}
+ExportedVariables : {}
+NestedModules     : {Microsoft.PowerShell.PSReadLine}
+
+
+Name              : AppBackgroundTask
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\AppBackgroundTask\AppBackgroundTask.psd1
+Description       : 
+Guid              : eb40bd55-3bab-4fa6-88ee-0dcf3cad5a25
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\AppBackgroundTask
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[iru, iru], [pfn, pfn], [tid, tid]}
+ExportedCmdlets   : {[Disable-AppBackgroundTaskDiagnosticLog, Disable-AppBackgroundTaskDiagnosticLog], 
+                    [Enable-AppBackgroundTaskDiagnosticLog, Enable-AppBackgroundTaskDiagnosticLog], 
+                    [Set-AppBackgroundTaskResourcePolicy, Set-AppBackgroundTaskResourcePolicy]}
+ExportedFunctions : {[Unregister-AppBackgroundTask, Unregister-AppBackgroundTask], [Get-AppBackgroundTask, 
+                    Get-AppBackgroundTask], [Start-AppBackgroundTask, Start-AppBackgroundTask]}
+ExportedVariables : {}
+NestedModules     : {PS_BackgroundTask, microsoft.windows.appbackgroundtask.commands}
+
+
+Name              : AppLocker
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\AppLocker\AppLocker.psd1
+Description       : 
+Guid              : 9dafd409-67de-4108-8ee9-73cd61f5b7bf
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\AppLocker
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Get-AppLockerFileInformation, Get-AppLockerFileInformation], [Get-AppLockerPolicy, 
+                    Get-AppLockerPolicy], [New-AppLockerPolicy, New-AppLockerPolicy], [Set-AppLockerPolicy, 
+                    Set-AppLockerPolicy]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : AppvClient
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\AppvClient\AppvClient.psd1
+Description       : Microsoft Application Virtualization Client Module
+Guid              : 596d7b43-928b-44d4-89e7-17d34740ecc2
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\AppvClient
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Add-AppvClientConnectionGroup, Add-AppvClientConnectionGroup], [Add-AppvClientPackage, 
+                    Add-AppvClientPackage], [Add-AppvPublishingServer, Add-AppvPublishingServer], [Disable-Appv, 
+                    Disable-Appv]...}
+ExportedFunctions : {[Get-AppvVirtualProcess, Get-AppvVirtualProcess], [Start-AppvVirtualProcess, Start-AppvVirtualProcess]}
+ExportedVariables : {}
+NestedModules     : {Microsoft.AppV.AppVClientPowerShell}
+
+
+Name              : Appx
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Appx\Appx.psd1
+Description       : 
+Guid              : aeef2bef-eba9-4a1d-a3d2-d0b52df76deb
+Version           : 2.0.1.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Appx
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[Add-AppPackage, Add-AppPackage], [Get-AppPackage, Get-AppPackage], [Get-AppPackageAutoUpdateSettings, 
+                    Get-AppPackageAutoUpdateSettings], [Get-AppPackageManifest, Get-AppPackageManifest]...}
+ExportedCmdlets   : {[Add-AppxPackage, Add-AppxPackage], [Get-AppxPackage, Get-AppxPackage], 
+                    [Get-AppxPackageAutoUpdateSettings, Get-AppxPackageAutoUpdateSettings], [Get-AppxPackageManifest, 
+                    Get-AppxPackageManifest]...}
+ExportedFunctions : {[Get-AppxLastError, Get-AppxLastError], [Get-AppxLog, Get-AppxLog]}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : AssignedAccess
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\AssignedAccess\AssignedAccess.psd1
+Description       : 
+Guid              : 9e72217e-9e27-45f7-81fc-048763587e0a
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\AssignedAccess
+ModuleType        : Script
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Clear-AssignedAccess, Clear-AssignedAccess], [Get-AssignedAccess, Get-AssignedAccess], 
+                    [Set-AssignedAccess, Set-AssignedAccess]}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : BitLocker
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\BitLocker\BitLocker.psd1
+Description       : 
+Guid              : 0ff02bb8-300a-4262-ac08-e06dd810f1b6
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\BitLocker
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Unlock-BitLocker, Unlock-BitLocker], [Suspend-BitLocker, Suspend-BitLocker], [Resume-BitLocker, 
+                    Resume-BitLocker], [Remove-BitLockerKeyProtector, Remove-BitLockerKeyProtector]...}
+ExportedVariables : {}
+NestedModules     : {Microsoft.BitLocker.Structures}
+
+
+Name              : BitsTransfer
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\BitsTransfer\BitsTransfer.psd1
+Description       : 
+Guid              : 8fa5064b-8479-4c5c-86ea-0d311fe48875
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\BitsTransfer
+ModuleType        : Script
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Add-BitsFile, Add-BitsFile], [Complete-BitsTransfer, Complete-BitsTransfer], [Get-BitsTransfer, 
+                    Get-BitsTransfer], [Remove-BitsTransfer, Remove-BitsTransfer]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : BranchCache
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\BranchCache\BranchCache.psd1
+Description       : 
+Guid              : d57aee1e-6fe7-4bbc-8c57-8675a3a83e0d
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\BranchCache
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Add-BCDataCacheExtension, Add-BCDataCacheExtension], [Clear-BCCache, Clear-BCCache], [Disable-BC, 
+                    Disable-BC], [Disable-BCDowngrading, Disable-BCDowngrading]...}
+ExportedVariables : {}
+NestedModules     : {BranchCacheClientSettingData, BranchCacheContentServerSettingData, 
+                    BranchCacheHostedCacheServerSettingData, BranchCacheNetworkSettingData...}
+
+
+Name              : CimCmdlets
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\CimCmdlets\CimCmdlets.psd1
+Description       : 
+Guid              : fb6cc51d-c096-4b38-b78d-0fed6277096a
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\CimCmdlets
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[gcim, gcim], [scim, scim], [ncim, ncim], [rcim, rcim]...}
+ExportedCmdlets   : {[Get-CimAssociatedInstance, Get-CimAssociatedInstance], [Get-CimClass, Get-CimClass], [Get-CimInstance, 
+                    Get-CimInstance], [Get-CimSession, Get-CimSession]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : ConfigCI
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\ConfigCI\ConfigCI.psd1
+Description       : 
+Guid              : 28c9a37e-c849-4370-b672-e5563447b0e1
+Version           : 1.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\ConfigCI
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Get-SystemDriver, Get-SystemDriver], [New-CIPolicyRule, New-CIPolicyRule], [New-CIPolicy, 
+                    New-CIPolicy], [Get-CIPolicy, Get-CIPolicy]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : ConfigDefender
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\ConfigDefender\ConfigDefender.psd1
+Description       : 
+Guid              : c46be3dc-30a9-452f-a5fd-4bf9ca87a854
+Version           : 1.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\ConfigDefender
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-MpPreference, Get-MpPreference], [Set-MpPreference, Set-MpPreference], [Add-MpPreference, 
+                    Add-MpPreference], [Remove-MpPreference, Remove-MpPreference]...}
+ExportedVariables : {}
+NestedModules     : {MSFT_MpComputerStatus, MSFT_MpPreference, MSFT_MpThreat, MSFT_MpThreatCatalog...}
+
+
+Name              : ConfigDefenderPerformance
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\ConfigDefenderPerformance\ConfigDefenderPerformance.psd
+                    1
+Description       : 
+Guid              : a51e6d9e-bc14-41a7-98a8-888195641250
+Version           : 1.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\ConfigDefenderPerformance
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[New-MpPerformanceRecording, New-MpPerformanceRecording], [Get-MpPerformanceReport, 
+                    Get-MpPerformanceReport]}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : Defender
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Defender\Defender.psd1
+Description       : 
+Guid              : c46be3dc-30a9-452f-a5fd-4bf9ca87a854
+Version           : 1.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Defender
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-MpPreference, Get-MpPreference], [Set-MpPreference, Set-MpPreference], [Add-MpPreference, 
+                    Add-MpPreference], [Remove-MpPreference, Remove-MpPreference]...}
+ExportedVariables : {}
+NestedModules     : {MSFT_MpComputerStatus, MSFT_MpPreference, MSFT_MpThreat, MSFT_MpThreatCatalog...}
+
+
+Name              : DefenderPerformance
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\DefenderPerformance\DefenderPerformance.psd1
+Description       : 
+Guid              : a51e6d9e-bc14-41a7-98a8-888195641250
+Version           : 1.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\DefenderPerformance
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[New-MpPerformanceRecording, New-MpPerformanceRecording], [Get-MpPerformanceReport, 
+                    Get-MpPerformanceReport]}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : DeliveryOptimization
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\DeliveryOptimization\DeliveryOptimization.psd1
+Description       : 
+Guid              : b9af2675-4726-42fd-adab-38228176a516
+Version           : 1.0.3.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\DeliveryOptimization
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Get-DeliveryOptimizationLog, Get-DeliveryOptimizationLog], [Get-DeliveryOptimizationLogAnalysis, 
+                    Get-DeliveryOptimizationLogAnalysis]}
+ExportedFunctions : {[Delete-DeliveryOptimizationCache, Delete-DeliveryOptimizationCache], 
+                    [Disable-DeliveryOptimizationVerboseLogs, Disable-DeliveryOptimizationVerboseLogs], 
+                    [Enable-DeliveryOptimizationVerboseLogs, Enable-DeliveryOptimizationVerboseLogs], 
+                    [Get-DeliveryOptimizationStatus, Get-DeliveryOptimizationStatus]...}
+ExportedVariables : {}
+NestedModules     : {Microsoft.Windows.DeliveryOptimization.AdminCommands}
+
+
+Name              : DirectAccessClientComponents
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\DirectAccessClientComponents\DirectAccessClientComponen
+                    ts.psd1
+Description       : 
+Guid              : 244f8fc0-a410-4b87-8237-7496f557e6d4
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\DirectAccessClientComponents
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Disable-DAManualEntryPointSelection, Disable-DAManualEntryPointSelection], 
+                    [Enable-DAManualEntryPointSelection, Enable-DAManualEntryPointSelection], 
+                    [Get-DAClientExperienceConfiguration, Get-DAClientExperienceConfiguration], [Get-DAEntryPointTableItem, 
+                    Get-DAEntryPointTableItem]...}
+ExportedVariables : {}
+NestedModules     : {MSFT_DASiteTableEntry, MSFT_DAClientExperienceConfiguration}
+
+
+Name              : Dism
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Dism\Dism.psd1
+Description       : 
+Guid              : 389c464d-8b8d-48e9-aafe-6d8a590d6798
+Version           : 3.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Dism
+ModuleType        : Script
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[Apply-WindowsUnattend, Apply-WindowsUnattend], [Add-ProvisionedAppxPackage, 
+                    Add-ProvisionedAppxPackage], [Remove-ProvisionedAppxPackage, Remove-ProvisionedAppxPackage], 
+                    [Get-ProvisionedAppxPackage, Get-ProvisionedAppxPackage]...}
+ExportedCmdlets   : {[Add-AppProvisionedSharedPackageContainer, Add-AppProvisionedSharedPackageContainer], 
+                    [Add-AppxProvisionedPackage, Add-AppxProvisionedPackage], [Add-WindowsDriver, Add-WindowsDriver], 
+                    [Add-WindowsCapability, Add-WindowsCapability]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {Microsoft.Dism.PowerShell}
+
+
+Name              : DnsClient
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\DnsClient\DnsClient.psd1
+Description       : 
+Guid              : 5696d5ef-fa2d-4997-94f1-0bc13daa2ac5
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\DnsClient
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Resolve-DnsName, Resolve-DnsName]}
+ExportedFunctions : {[Clear-DnsClientCache, Clear-DnsClientCache], [Get-DnsClient, Get-DnsClient], [Get-DnsClientCache, 
+                    Get-DnsClientCache], [Get-DnsClientGlobalSetting, Get-DnsClientGlobalSetting]...}
+ExportedVariables : {}
+NestedModules     : {dnslookup, MSFT_DnsClient, MSFT_DnsClientCache, MSFT_DnsClientGlobalSetting...}
+
+
+Name              : EventTracingManagement
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\EventTracingManagement\EventTracingManagement.psd1
+Description       : 
+Guid              : 80cb11cf-96b5-4d48-84bd-f85f65de78ae
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\EventTracingManagement
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[Remove-EtwTraceSession, Remove-EtwTraceSession], [Set-EtwTraceSession, Set-EtwTraceSession], 
+                    [Set-AutologgerConfig, Set-AutologgerConfig]}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Start-EtwTraceSession, Start-EtwTraceSession], [New-EtwTraceSession, New-EtwTraceSession], 
+                    [Get-EtwTraceSession, Get-EtwTraceSession], [Update-EtwTraceSession, Update-EtwTraceSession]...}
+ExportedVariables : {}
+NestedModules     : {MSFT_EtwTraceSession_v1.0, MSFT_EtwTraceProvider_v1.0, MSFT_AutologgerConfig_v1.0}
+
+
+Name              : Get-NetView
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Get-NetView\Get-NetView.psd1
+Description       : Get-NetView is a tool used to simplify the collection of network configuration information for diagnosis 
+                    of networking issues on Windows
+Guid              : 72f13048-50c0-44fd-b7f1-369e98319092
+Version           : 2023.2.7.226
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Get-NetView
+ModuleType        : Script
+PrivateData       : {PSData}
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-NetView, Get-NetView]}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : HgsClient
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\HgsClient\HgsClient.psd1
+Description       : 
+Guid              : de3e9b0f-0845-4b05-8cb1-65669405130c
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\HgsClient
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Get-HgsAttestationBaselinePolicy, Get-HgsAttestationBaselinePolicy]}
+ExportedFunctions : {[Get-HgsClientConfiguration, Get-HgsClientConfiguration], [Test-HgsClientConfiguration, 
+                    Test-HgsClientConfiguration], [Set-HgsClientConfiguration, Set-HgsClientConfiguration], [New-HgsGuardian, 
+                    New-HgsGuardian]...}
+ExportedVariables : {}
+NestedModules     : {MSFT_HgsClientConfiguration_v1.0, MSFT_HgsGuardian_v1.0, MSFT_HgsKeyProtector_v1.0}
+
+
+Name              : HgsDiagnostics
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\HgsDiagnostics\HgsDiagnostics.psd1
+Description       : 
+Guid              : 0d5d372a-6b2c-4c48-9151-1dead3b52fa7
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\HgsDiagnostics
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[New-HgsTraceTarget, New-HgsTraceTarget], [Get-HgsTrace, Get-HgsTrace], [Get-HgsTraceFileData, 
+                    Get-HgsTraceFileData], [Test-HgsTraceTarget, Test-HgsTraceTarget]}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : HostNetworkingService
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\HostNetworkingService\HostNetworkingService.psd1
+Description       : 
+Guid              : db0313a4-e42d-4b51-9d8e-523e839075fd
+Version           : 1.0.0.1
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\HostNetworkingService
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-HnsNamespace, Get-HnsNamespace], [Remove-HnsNetwork, Remove-HnsNetwork], [Remove-HnsNamespace, 
+                    Remove-HnsNamespace], [Get-HnsNetwork, Get-HnsNetwork]...}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : Hyper-V
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Hyper-V\2.0.0.0\Hyper-V.psd1
+Description       : 
+Guid              : af4bddd0-8583-4ff2-84b2-a33f5c8de8a7
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Hyper-V\2.0.0.0
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[gvm, gvm], [savm, savm], [spvm, spvm], [gvmr, gvmr]...}
+ExportedCmdlets   : {[Add-VMAssignableDevice, Add-VMAssignableDevice], [Add-VMDvdDrive, Add-VMDvdDrive], 
+                    [Add-VMFibreChannelHba, Add-VMFibreChannelHba], [Add-VMGpuPartitionAdapter, Add-VMGpuPartitionAdapter]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : International
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\International\International.psd1
+Description       : 
+Guid              : 561544e6-3a83-4d24-b140-78ad771eaf10
+Version           : 2.1.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\International
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Copy-UserInternationalSettingsToSystem, Copy-UserInternationalSettingsToSystem], 
+                    [Get-WinDefaultInputMethodOverride, Get-WinDefaultInputMethodOverride], 
+                    [Set-WinDefaultInputMethodOverride, Set-WinDefaultInputMethodOverride], [Get-WinHomeLocation, 
+                    Get-WinHomeLocation]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : iSCSI
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\iSCSI\iSCSI.psd1
+Description       : 
+Guid              : 53e1c251-4283-4b07-ab02-fc492c7ab8c5
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\iSCSI
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-IscsiTargetPortal, Get-IscsiTargetPortal], [New-IscsiTargetPortal, New-IscsiTargetPortal], 
+                    [Remove-IscsiTargetPortal, Remove-IscsiTargetPortal], [Update-IscsiTargetPortal, 
+                    Update-IscsiTargetPortal]...}
+ExportedVariables : {}
+NestedModules     : {iSCSIConnection, iSCSISession, iSCSITarget, iSCSITargetPortal}
+
+
+Name              : ISE
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\ISE\ISE.psd1
+Description       : 
+Guid              : bae93d8e-782c-4a23-b87f-8699bfc17ee0
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\ISE
+ModuleType        : Script
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[New-IseSnippet, New-IseSnippet], [Import-IseSnippet, Import-IseSnippet], [Get-IseSnippet, 
+                    Get-IseSnippet]}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : Kds
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Kds\Kds.psd1
+Description       : 
+Guid              : 176542f6-2a6b-11e0-ab18-d010e0d72085
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Kds
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Add-KdsRootKey, Add-KdsRootKey], [Get-KdsRootKey, Get-KdsRootKey], [Test-KdsRootKey, Test-KdsRootKey], 
+                    [Set-KdsConfiguration, Set-KdsConfiguration]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : LanguagePackManagement
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\LanguagePackManagement\LanguagePackManagement.psd1
+Description       : This module allows for programmatic management of a device's languages. Users can install and uninstall 
+                    language packs and features, as well as manage and query the language settings on the device.
+Guid              : f42dbdd4-4358-4067-8155-a4567a0aaee5
+Version           : 1.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\LanguagePackManagement
+ModuleType        : Manifest
+PrivateData       : {PSData}
+AccessMode        : ReadWrite
+ExportedAliases   : {[Get-Language, Get-Language], [Get-PreferredLanguage, Get-PreferredLanguage], [Get-SystemLanguage, 
+                    Get-SystemLanguage], [Set-PreferredLanguage, Set-PreferredLanguage]...}
+ExportedCmdlets   : {[Install-Language, Install-Language], [Uninstall-Language, Uninstall-Language], [Get-InstalledLanguage, 
+                    Get-InstalledLanguage], [Set-SystemPreferredUILanguage, Set-SystemPreferredUILanguage]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {Microsoft.LanguagePackManagement.Powershell.Commands}
+
+
+Name              : LAPS
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\LAPS\LAPS.psd1
+Description       : Provides cmdlets for configuration and usage of Windows LAPS (Local Administrator Password Solution)
+Guid              : 8eb7ddf9-7890-49ae-9af1-3b41d7e63c41
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\LAPS
+ModuleType        : Script
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Find-LapsADExtendedRights, Find-LapsADExtendedRights], [Get-LapsADPassword, Get-LapsADPassword], 
+                    [Invoke-LapsPolicyProcessing, Invoke-LapsPolicyProcessing], [Reset-LapsPassword, Reset-LapsPassword]...}
+ExportedFunctions : {[Get-LapsAADPassword, Get-LapsAADPassword], [Get-LapsDiagnostics, Get-LapsDiagnostics]}
+ExportedVariables : {}
+NestedModules     : {lapspsh}
+
+
+Name              : Microsoft.PowerShell.Archive
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.Archive\Microsoft.PowerShell.Archi
+                    ve.psd1
+Description       : 
+Guid              : eb74e8da-9ae2-482a-a648-e96550fb8733
+Version           : 1.0.1.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.Archive
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Compress-Archive, Compress-Archive], [Expand-Archive, Expand-Archive]}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : Microsoft.PowerShell.Diagnostics
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.Diagnostics\Microsoft.PowerShell.D
+                    iagnostics.psd1
+Description       : 
+Guid              : ca046f10-ca64-4740-8ff9-2565dba61a4f
+Version           : 3.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.Diagnostics
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Get-WinEvent, Get-WinEvent], [Get-Counter, Get-Counter], [Import-Counter, Import-Counter], 
+                    [Export-Counter, Export-Counter]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : Microsoft.PowerShell.Host
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.Host\Microsoft.PowerShell.Host.psd
+                    1
+Description       : 
+Guid              : 56d66100-99a0-4ffc-a12d-eee9a6718aef
+Version           : 3.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.Host
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Start-Transcript, Start-Transcript], [Stop-Transcript, Stop-Transcript]}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : Microsoft.PowerShell.LocalAccounts
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.LocalAccounts\1.0.0.0\Microsoft.Po
+                    werShell.LocalAccounts.psd1
+Description       : Provides cmdlets to work with local users and local groups
+Guid              : 8e362604-2c0b-448f-a414-a6a690a644e2
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.LocalAccounts\1.0.0.0
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[algm, algm], [dlu, dlu], [elu, elu], [glg, glg]...}
+ExportedCmdlets   : {[Add-LocalGroupMember, Add-LocalGroupMember], [Disable-LocalUser, Disable-LocalUser], [Enable-LocalUser, 
+                    Enable-LocalUser], [Get-LocalGroup, Get-LocalGroup]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : Microsoft.PowerShell.Management
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.Management\Microsoft.PowerShell.Ma
+                    nagement.psd1
+Description       : 
+Guid              : eefcb906-b326-4e99-9f54-8b4bb6ef3c6d
+Version           : 3.1.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.Management
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[gcb, gcb], [scb, scb], [gin, gin], [gtz, gtz]...}
+ExportedCmdlets   : {[Add-Content, Add-Content], [Clear-Content, Clear-Content], [Clear-ItemProperty, Clear-ItemProperty], 
+                    [Join-Path, Join-Path]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : Microsoft.PowerShell.ODataUtils
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.ODataUtils\Microsoft.PowerShell.OD
+                    ataUtils.psd1
+Description       : 
+Guid              : fa1606d1-94cb-4264-bfb6-def714420084
+Version           : 1.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.ODataUtils
+ModuleType        : Script
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Export-ODataEndpointProxy, Export-ODataEndpointProxy]}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : Microsoft.PowerShell.Security
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.Security\Microsoft.PowerShell.Secu
+                    rity.psd1
+Description       : 
+Guid              : a94c8c7e-9810-47c0-b8af-65089c13a35a
+Version           : 3.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.Security
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Get-Acl, Get-Acl], [Set-Acl, Set-Acl], [Get-PfxCertificate, Get-PfxCertificate], [Get-Credential, 
+                    Get-Credential]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : Microsoft.PowerShell.Utility
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.Utility\Microsoft.PowerShell.Utili
+                    ty.psd1
+Description       : 
+Guid              : 1da87e53-152b-403e-98dc-74d7b4d63d59
+Version           : 3.1.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.Utility
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[CFS, CFS], [fhx, fhx]}
+ExportedCmdlets   : {[Format-List, Format-List], [Format-Custom, Format-Custom], [Format-Table, Format-Table], [Format-Wide, 
+                    Format-Wide]...}
+ExportedFunctions : {[Get-FileHash, Get-FileHash], [New-TemporaryFile, New-TemporaryFile], [New-Guid, New-Guid], [Format-Hex, 
+                    Format-Hex]...}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : Microsoft.ReFsDedup.Commands
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.ReFsDedup.Commands\Microsoft.ReFsDedup.Comman
+                    ds.psd1
+Description       : 
+Guid              : 63145e13-3dcf-4fa5-acef-9a437f2d9871
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.ReFsDedup.Commands
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Enable-ReFSDedup, Enable-ReFSDedup], [Disable-ReFSDedup, Disable-ReFSDedup], [Start-ReFSDedupJob, 
+                    Start-ReFSDedupJob], [Stop-ReFSDedupJob, Stop-ReFSDedupJob]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {Microsoft.ReFsDedup.Commands}
+
+
+Name              : Microsoft.Windows.Bcd.Cmdlets
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.Windows.Bcd.Cmdlets\Microsoft.Windows.Bcd.Cmd
+                    lets.psd1
+Description       : 
+Guid              : a036f7aa-a3f6-435e-bc8e-924afd181240
+Version           : 1.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.Windows.Bcd.Cmdlets
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Copy-BcdEntry, Copy-BcdEntry], [Disable-BcdElementBootDebug, Disable-BcdElementBootDebug], 
+                    [Disable-BcdElementBootEms, Disable-BcdElementBootEms], [Disable-BcdElementDebug, 
+                    Disable-BcdElementDebug]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {Microsoft.Windows.Bcd.Cmdlets}
+
+
+Name              : Microsoft.WSMan.Management
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.WSMan.Management\Microsoft.WSMan.Management.p
+                    sd1
+Description       : 
+Guid              : 766204a6-330e-4263-a7ab-46c87afc366c
+Version           : 3.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Microsoft.WSMan.Management
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Disable-WSManCredSSP, Disable-WSManCredSSP], [Enable-WSManCredSSP, Enable-WSManCredSSP], 
+                    [Get-WSManCredSSP, Get-WSManCredSSP], [Set-WSManQuickConfig, Set-WSManQuickConfig]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : MMAgent
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\MMAgent\MMAgent.psd1
+Description       : 
+Guid              : e1383a06-d48b-45e0-81e4-5ead146e81a8
+Version           : 1.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\MMAgent
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Disable-MMAgent, Disable-MMAgent], [Enable-MMAgent, Enable-MMAgent], [Set-MMAgent, Set-MMAgent], 
+                    [Get-MMAgent, Get-MMAgent]...}
+ExportedVariables : {}
+NestedModules     : {ps_mmagent_v1.0}
+
+
+Name              : MsDtc
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\MsDtc\MsDtc.psd1
+Description       : 
+Guid              : 52923875-f2e3-4ad2-8e0c-96c7b10e2e3d
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\MsDtc
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[New-DtcDiagnosticTransaction, New-DtcDiagnosticTransaction], [Complete-DtcDiagnosticTransaction, 
+                    Complete-DtcDiagnosticTransaction], [Join-DtcDiagnosticResourceManager, 
+                    Join-DtcDiagnosticResourceManager], [Receive-DtcDiagnosticTransaction, 
+                    Receive-DtcDiagnosticTransaction]...}
+ExportedFunctions : {[Add-DtcClusterTMMapping, Add-DtcClusterTMMapping], [Get-Dtc, Get-Dtc], [Get-DtcAdvancedHostSetting, 
+                    Get-DtcAdvancedHostSetting], [Get-DtcAdvancedSetting, Get-DtcAdvancedSetting]...}
+ExportedVariables : {}
+NestedModules     : {MSFT_DtcTask_v1.0, MSFT_DtcLogTask_v1.0, MSFT_DtcAdvancedHostSettingTask_v1.0, 
+                    MSFT_DtcAdvancedSettingTask_v1.0...}
+
+
+Name              : NetAdapter
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetAdapter\NetAdapter.psd1
+Description       : 
+Guid              : 1042b422-63a8-4016-a6d6-293e19e8f8a6
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetAdapter
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Disable-NetAdapter, Disable-NetAdapter], [Disable-NetAdapterBinding, Disable-NetAdapterBinding], 
+                    [Disable-NetAdapterChecksumOffload, Disable-NetAdapterChecksumOffload], 
+                    [Disable-NetAdapterEncapsulatedPacketTaskOffload, Disable-NetAdapterEncapsulatedPacketTaskOffload]...}
+ExportedVariables : {}
+NestedModules     : {MSFT_NetAdapter.cmdletDefinition, MSFT_NetAdapterAdvancedProperty.cmdletDefinition, 
+                    MSFT_NetAdapterBinding.cmdletDefinition, MSFT_NetAdapterChecksumOffload...}
+
+
+Name              : NetConnection
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetConnection\NetConnection.psd1
+Description       : 
+Guid              : ce4ff86e-9416-4f2d-a869-c860ac543b5e
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetConnection
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-NetConnectionProfile, Get-NetConnectionProfile], [Set-NetConnectionProfile, 
+                    Set-NetConnectionProfile]}
+ExportedVariables : {}
+NestedModules     : {MSFT_NetConnectionProfile}
+
+
+Name              : NetEventPacketCapture
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetEventPacketCapture\NetEventPacketCapture.psd1
+Description       : 
+Guid              : 7e984f2f-35da-48a2-a3c1-40ce59930a7c
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetEventPacketCapture
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[New-NetEventSession, New-NetEventSession], [Remove-NetEventSession, Remove-NetEventSession], 
+                    [Get-NetEventSession, Get-NetEventSession], [Set-NetEventSession, Set-NetEventSession]...}
+ExportedVariables : {}
+NestedModules     : {MSFT_NetEventSession, MSFT_NetEventProvider, MSFT_NetEventPacketCaptureProvider, 
+                    MSFT_NetEventNetworkAdapter...}
+
+
+Name              : NetLbfo
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetLbfo\NetLbfo.psd1
+Description       : 
+Guid              : 80cf4c6d-30b7-4b0f-a035-dbb23a65ef1d
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetLbfo
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Add-NetLbfoTeamMember, Add-NetLbfoTeamMember], [Add-NetLbfoTeamNic, Add-NetLbfoTeamNic], 
+                    [Get-NetLbfoTeam, Get-NetLbfoTeam], [Get-NetLbfoTeamMember, Get-NetLbfoTeamMember]...}
+ExportedVariables : {}
+NestedModules     : {MSFT_NetLbfoTeam, MSFT_NetLbfoTeamMember, MSFT_NetLbfoTeamNic}
+
+
+Name              : NetNat
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetNat\NetNat.psd1
+Description       : 
+Guid              : e5439f56-42aa-4fdf-8705-50c782a89345
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetNat
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-NetNat, Get-NetNat], [Get-NetNatExternalAddress, Get-NetNatExternalAddress], 
+                    [Get-NetNatStaticMapping, Get-NetNatStaticMapping], [Get-NetNatSession, Get-NetNatSession]...}
+ExportedVariables : {}
+NestedModules     : {MSFT_NetNat, MSFT_NetNatExternalAddress, MSFT_NetNatStaticMapping, MSFT_NetNatSession...}
+
+
+Name              : NetQos
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetQos\NetQos.psd1
+Description       : 
+Guid              : 743692b7-a227-4389-b082-2b47de1d0d2d
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetQos
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-NetQosPolicy, Get-NetQosPolicy], [Set-NetQosPolicy, Set-NetQosPolicy], [Remove-NetQosPolicy, 
+                    Remove-NetQosPolicy], [New-NetQosPolicy, New-NetQosPolicy]}
+ExportedVariables : {}
+NestedModules     : {MSFT_NetQosPolicy}
+
+
+Name              : NetSecurity
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetSecurity\NetSecurity.psd1
+Description       : 
+Guid              : 4b26ff51-7aee-4731-9cf7-508b82532cbf
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetSecurity
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Get-DAPolicyChange, Get-DAPolicyChange], [New-NetIPsecAuthProposal, New-NetIPsecAuthProposal], 
+                    [New-NetIPsecMainModeCryptoProposal, New-NetIPsecMainModeCryptoProposal], 
+                    [New-NetIPsecQuickModeCryptoProposal, New-NetIPsecQuickModeCryptoProposal]}
+ExportedFunctions : {[Copy-NetFirewallRule, Copy-NetFirewallRule], [Copy-NetIPsecMainModeCryptoSet, 
+                    Copy-NetIPsecMainModeCryptoSet], [Copy-NetIPsecMainModeRule, Copy-NetIPsecMainModeRule], 
+                    [Copy-NetIPsecPhase1AuthSet, Copy-NetIPsecPhase1AuthSet]...}
+ExportedVariables : {}
+NestedModules     : {Microsoft.Windows.Firewall.Commands, NetFirewallHyperVRule.cmdletDefinitIon, 
+                    NetFirewallRule.cmdletDefinition, NetIPsecRule.cmdletDefinition...}
+
+
+Name              : NetSwitchTeam
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetSwitchTeam\NetSwitchTeam.psd1
+Description       : 
+Guid              : e83097b1-4470-4f37-8ce3-a6b0ac5ed8f5
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetSwitchTeam
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[New-NetSwitchTeam, New-NetSwitchTeam], [Remove-NetSwitchTeam, Remove-NetSwitchTeam], 
+                    [Get-NetSwitchTeam, Get-NetSwitchTeam], [Rename-NetSwitchTeam, Rename-NetSwitchTeam]...}
+ExportedVariables : {}
+NestedModules     : {MSFT_NetSwitchTeam, MSFT_NetSwitchTeamMember}
+
+
+Name              : NetTCPIP
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetTCPIP\NetTCPIP.psd1
+Description       : 
+Guid              : 2d0b6c7f-16a0-4185-843f-ae47b6db4551
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetTCPIP
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[gip, gip], [TNC, TNC]}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-NetIPAddress, Get-NetIPAddress], [Get-NetIPInterface, Get-NetIPInterface], [Get-NetIPv4Protocol, 
+                    Get-NetIPv4Protocol], [Get-NetIPv6Protocol, Get-NetIPv6Protocol]...}
+ExportedVariables : {}
+NestedModules     : {MSFT_NetCompartment, MSFT_NetIPAddress, MSFT_NetIPInterface, MSFT_NetIPv4Protocol...}
+
+
+Name              : NetworkConnectivityStatus
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetworkConnectivityStatus\NetworkConnectivityStatus.psd
+                    1
+Description       : 
+Guid              : 6c9a449b-b0c6-4386-b139-ee0a55638803
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetworkConnectivityStatus
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-DAConnectionStatus, Get-DAConnectionStatus], [Get-NCSIPolicyConfiguration, 
+                    Get-NCSIPolicyConfiguration], [Reset-NCSIPolicyConfiguration, Reset-NCSIPolicyConfiguration], 
+                    [Set-NCSIPolicyConfiguration, Set-NCSIPolicyConfiguration]}
+ExportedVariables : {}
+NestedModules     : {MSFT_DAConnectionStatus, MSFT_NCSIPolicyConfiguration}
+
+
+Name              : NetworkSwitchManager
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetworkSwitchManager\NetworkSwitchManager.psd1
+Description       : 
+Guid              : 53b60d16-69ad-4453-bf41-83efa5ac35b8
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetworkSwitchManager
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Disable-NetworkSwitchEthernetPort, Disable-NetworkSwitchEthernetPort], 
+                    [Enable-NetworkSwitchEthernetPort, Enable-NetworkSwitchEthernetPort], [Get-NetworkSwitchEthernetPort, 
+                    Get-NetworkSwitchEthernetPort], [Remove-NetworkSwitchEthernetPortIPAddress, 
+                    Remove-NetworkSwitchEthernetPortIPAddress]...}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : NetworkTransition
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetworkTransition\NetworkTransition.psd1
+Description       : 
+Guid              : eff9ccf9-53ed-423d-b0da-23e6772aacaa
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\NetworkTransition
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Add-NetIPHttpsCertBinding, Add-NetIPHttpsCertBinding], [Disable-NetDnsTransitionConfiguration, 
+                    Disable-NetDnsTransitionConfiguration], [Disable-NetIPHttpsProfile, Disable-NetIPHttpsProfile], 
+                    [Disable-NetNatTransitionConfiguration, Disable-NetNatTransitionConfiguration]...}
+ExportedVariables : {}
+NestedModules     : {MSFT_Net6to4Configuration, MSFT_NetDnsTransitionConfiguration, MSFT_NetDnsTransitionMonitoring, 
+                    MSFT_NetIpHTTPsConfiguration...}
+
+
+Name              : OsConfiguration
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\OsConfiguration\OsConfiguration.psd1
+Description       : 
+Guid              : 1c9ff8ee-e567-4883-a532-4087d40bc5d6
+Version           : 1.1.3.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\OsConfiguration
+ModuleType        : Binary
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Get-OsConfigurationDocument, Get-OsConfigurationDocument], [Get-OsConfigurationDocumentContent, 
+                    Get-OsConfigurationDocumentContent], [Get-OsConfigurationDocumentResult, 
+                    Get-OsConfigurationDocumentResult], [Get-OsConfigurationProperty, Get-OsConfigurationProperty]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : PcsvDevice
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PcsvDevice\PcsvDevice.psd1
+Description       : 
+Guid              : 576ff287-7d01-46a3-8a88-94df7581a2b0
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PcsvDevice
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-PcsvDevice, Get-PcsvDevice], [Start-PcsvDevice, Start-PcsvDevice], [Stop-PcsvDevice, 
+                    Stop-PcsvDevice], [Restart-PcsvDevice, Restart-PcsvDevice]...}
+ExportedVariables : {}
+NestedModules     : {CIM_PhysicalComputerSystemView}
+
+
+Name              : PersistentMemory
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PersistentMemory\PersistentMemory.psd1
+Description       : 
+Guid              : e5905ed9-12bc-4765-b20d-40a37d69c3dd
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PersistentMemory
+ModuleType        : Binary
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Get-PmemDisk, Get-PmemDisk], [Get-PmemPhysicalDevice, Get-PmemPhysicalDevice], [Get-PmemUnusedRegion, 
+                    Get-PmemUnusedRegion], [New-PmemDisk, New-PmemDisk]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : PKI
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PKI\PKI.psd1
+Description       : 
+Guid              : cf094c6b-63d1-4dda-bf70-15a602c4eb2b
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PKI
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Add-CertificateEnrollmentPolicyServer, Add-CertificateEnrollmentPolicyServer], [Export-Certificate, 
+                    Export-Certificate], [Export-PfxCertificate, Export-PfxCertificate], 
+                    [Get-CertificateAutoEnrollmentPolicy, Get-CertificateAutoEnrollmentPolicy]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : PnpDevice
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PnpDevice\PnpDevice.psd1
+Description       : 
+Guid              : ad34bc8b-1cf8-47d8-bd82-f681c5358e1c
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PnpDevice
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-PnpDevice, Get-PnpDevice], [Get-PnpDeviceProperty, Get-PnpDeviceProperty], [Enable-PnpDevice, 
+                    Enable-PnpDevice], [Disable-PnpDevice, Disable-PnpDevice]}
+ExportedVariables : {}
+NestedModules     : {PnpDevice}
+
+
+Name              : PrintManagement
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PrintManagement\PrintManagement.psd1
+Description       : 
+Guid              : 8466ae97-2c03-4385-a501-7e74cf6bb1df
+Version           : 1.1
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PrintManagement
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Add-Printer, Add-Printer], [Add-PrinterDriver, Add-PrinterDriver], [Add-PrinterPort, Add-PrinterPort], 
+                    [Get-PrintConfiguration, Get-PrintConfiguration]...}
+ExportedVariables : {}
+NestedModules     : {MSFT_Printer_v1.0, MSFT_PrinterPort_v1.0, MSFT_PrinterPortTasks_v1.0, MSFT_PrinterDriver_v1.0...}
+
+
+Name              : ProcessMitigations
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\ProcessMitigations\ProcessMitigations.psd1
+Description       : 
+Guid              : 1e8f5a4c-f11b-41a5-bdbd-4695ca4a503e
+Version           : 1.0.12
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\ProcessMitigations
+ModuleType        : Binary
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Get-ProcessMitigation, Get-ProcessMitigation], [Set-ProcessMitigation, Set-ProcessMitigation], 
+                    [ConvertTo-ProcessMitigationPolicy, ConvertTo-ProcessMitigationPolicy]}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : Provisioning
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Provisioning\Provisioning.psd1
+Description       : 
+Guid              : 1323f046-a4bd-47df-a8bc-8253eabc49b2
+Version           : 3.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Provisioning
+ModuleType        : Script
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[Add-ProvisioningPackage, Add-ProvisioningPackage], [Add-TrustedProvisioningCertificate, 
+                    Add-TrustedProvisioningCertificate], [Remove-ProvisioningPackage, Remove-ProvisioningPackage], 
+                    [Remove-TrustedProvisioningCertificate, Remove-TrustedProvisioningCertificate]}
+ExportedCmdlets   : {[Install-ProvisioningPackage, Install-ProvisioningPackage], [Export-ProvisioningPackage, 
+                    Export-ProvisioningPackage], [Install-TrustedProvisioningCertificate, 
+                    Install-TrustedProvisioningCertificate], [Export-Trace, Export-Trace]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {provcmdlets}
+
+
+Name              : PSDesiredStateConfiguration
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PSDesiredStateConfiguration\PSDesiredStateConfiguration
+                    .psd1
+Description       : 
+Guid              : 94b905ff-74b5-437e-89ed-7df44386533c
+Version           : 1.1
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PSDesiredStateConfiguration
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[sacfg, sacfg], [tcfg, tcfg], [gcfg, gcfg], [rtcfg, rtcfg]...}
+ExportedCmdlets   : {[Set-DscLocalConfigurationManager, Set-DscLocalConfigurationManager], [Start-DscConfiguration, 
+                    Start-DscConfiguration], [Test-DscConfiguration, Test-DscConfiguration], [Publish-DscConfiguration, 
+                    Publish-DscConfiguration]...}
+ExportedFunctions : {[Configuration, Configuration], [Get-DscConfiguration, Get-DscConfiguration], 
+                    [Get-DscLocalConfigurationManager, Get-DscLocalConfigurationManager], [Restore-DscConfiguration, 
+                    Restore-DscConfiguration]...}
+ExportedVariables : {}
+NestedModules     : {Get-DSCConfiguration, Get-DSCLocalConfigurationManager, Restore-DSCConfiguration, 
+                    Get-DscConfigurationStatus...}
+
+
+Name              : PSDiagnostics
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PSDiagnostics\PSDiagnostics.psd1
+Description       : 
+Guid              : c61d6278-02a3-4618-ae37-a524d40a7f44
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PSDiagnostics
+ModuleType        : Script
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Disable-PSTrace, Disable-PSTrace], [Disable-PSWSManCombinedTrace, Disable-PSWSManCombinedTrace], 
+                    [Disable-WSManTrace, Disable-WSManTrace], [Enable-PSTrace, Enable-PSTrace]...}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : PSScheduledJob
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PSScheduledJob\PSScheduledJob.psd1
+Description       : 
+Guid              : 50cdb55f-5ab7-489f-9e94-4ec21ff51e59
+Version           : 1.1.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PSScheduledJob
+ModuleType        : Binary
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[New-JobTrigger, New-JobTrigger], [Add-JobTrigger, Add-JobTrigger], [Remove-JobTrigger, 
+                    Remove-JobTrigger], [Get-JobTrigger, Get-JobTrigger]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : PSWorkflow
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PSWorkflow\PSWorkflow.psd1
+Description       : 
+Guid              : 3b6cc51d-c096-4b38-b78d-0fed6277096a
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PSWorkflow
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[nwsn, nwsn]}
+ExportedCmdlets   : {[New-PSWorkflowExecutionOption, New-PSWorkflowExecutionOption]}
+ExportedFunctions : {[New-PSWorkflowSession, New-PSWorkflowSession]}
+ExportedVariables : {}
+NestedModules     : {Microsoft.Powershell.Workflow.ServiceCore}
+
+
+Name              : PSWorkflowUtility
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PSWorkflowUtility\PSWorkflowUtility.psd1
+Description       : 
+Guid              : e40bae2f-9558-479f-939b-e52407a19c86
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\PSWorkflowUtility
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Invoke-AsWorkflow, Invoke-AsWorkflow]}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : ScheduledTasks
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\ScheduledTasks\ScheduledTasks.psd1
+Description       : 
+Guid              : 5378ee8e-e349-49bb-83b9-f3d9c396c0a6
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\ScheduledTasks
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-ScheduledTask, Get-ScheduledTask], [Set-ScheduledTask, Set-ScheduledTask], [Register-ScheduledTask, 
+                    Register-ScheduledTask], [Unregister-ScheduledTask, Unregister-ScheduledTask]...}
+ExportedVariables : {}
+NestedModules     : {MSFT_ScheduledTask_v1.0, PS_ScheduledTask_v1.0, PS_ClusteredScheduledTask_v1.0}
+
+
+Name              : SecureBoot
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\SecureBoot\SecureBoot.psd1
+Description       : 
+Guid              : a5bd98e1-e44c-44fb-b88f-5af9bde66fdf
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\SecureBoot
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Confirm-SecureBootUEFI, Confirm-SecureBootUEFI], [Set-SecureBootUEFI, Set-SecureBootUEFI], 
+                    [Get-SecureBootUEFI, Get-SecureBootUEFI], [Format-SecureBootUEFI, Format-SecureBootUEFI]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : SmbShare
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\SmbShare\SmbShare.psd1
+Description       : 
+Guid              : 3af1699d-cc54-4e54-81cf-28d2df5cce0a
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\SmbShare
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[gsmbs, gsmbs], [nsmbs, nsmbs], [rsmbs, rsmbs], [ssmbs, ssmbs]...}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-SmbShare, Get-SmbShare], [Remove-SmbShare, Remove-SmbShare], [Set-SmbShare, Set-SmbShare], 
+                    [Block-SmbShareAccess, Block-SmbShareAccess]...}
+ExportedVariables : {}
+NestedModules     : {SmbShare, SmbSession, SmbServerNetworkInterface, SmbServerConfiguration...}
+
+
+Name              : SmbWitness
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\SmbWitness\SmbWitness.psd1
+Description       : 
+Guid              : ef018256-3318-4e74-a823-158022778487
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\SmbWitness
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[gsmbw, gsmbw], [msmbw, msmbw], [Move-SmbClient, Move-SmbClient]}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-SmbWitnessClient, Get-SmbWitnessClient], [Move-SmbWitnessClient, Move-SmbWitnessClient]}
+ExportedVariables : {}
+NestedModules     : {SmbWitnessWmiClient}
+
+
+Name              : StartLayout
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\StartLayout\StartLayout.psd1
+Description       : 
+Guid              : c361139b-c043-44a9-b94f-513fbaf1af0d
+Version           : 1.0.0.1
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\StartLayout
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Export-StartLayout, Export-StartLayout], [Import-StartLayout, Import-StartLayout], 
+                    [Export-StartLayoutEdgeAssets, Export-StartLayoutEdgeAssets]}
+ExportedFunctions : {[Get-StartApps, Get-StartApps]}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : Storage
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Storage\Storage.psd1
+Description       : 
+Guid              : 41486f7d-842f-40f1-ace4-8405f9c2ed9b
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Storage
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[Disable-PhysicalDiskIndication, Disable-PhysicalDiskIndication], [Disable-StorageDiagnosticLog, 
+                    Disable-StorageDiagnosticLog], [Enable-PhysicalDiskIndication, Enable-PhysicalDiskIndication], 
+                    [Enable-StorageDiagnosticLog, Enable-StorageDiagnosticLog]...}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Add-InitiatorIdToMaskingSet, Add-InitiatorIdToMaskingSet], [Add-PartitionAccessPath, 
+                    Add-PartitionAccessPath], [Add-PhysicalDisk, Add-PhysicalDisk], [Add-StorageFaultDomain, 
+                    Add-StorageFaultDomain]...}
+ExportedVariables : {}
+NestedModules     : {Disk, DiskImage, FileIntegrity, FileServer...}
+
+
+Name              : StorageBusCache
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\StorageBusCache\StorageBusCache.psd1
+Description       : 
+Guid              : c85588a4-1180-4635-ba9e-a04581bf10c8
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\StorageBusCache
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Clear-StorageBusDisk, Clear-StorageBusDisk], [Disable-StorageBusCache, Disable-StorageBusCache], 
+                    [Disable-StorageBusDisk, Disable-StorageBusDisk], [Enable-StorageBusCache, Enable-StorageBusCache]...}
+ExportedVariables : {}
+NestedModules     : {StorageBusClientDevice, StorageBusTargetDeviceInstance, StorageBusTargetCacheStoresInstance}
+
+
+Name              : TLS
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\TLS\TLS.psd1
+Description       : 
+Guid              : 1e28c697-2370-42f2-ace1-5ac8777f8053
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\TLS
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[New-TlsSessionTicketKey, New-TlsSessionTicketKey], [Enable-TlsSessionTicketKey, 
+                    Enable-TlsSessionTicketKey], [Disable-TlsSessionTicketKey, Disable-TlsSessionTicketKey], 
+                    [Export-TlsSessionTicketKey, Export-TlsSessionTicketKey]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : TroubleshootingPack
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\TroubleshootingPack\TroubleshootingPack.psd1
+Description       : 
+Guid              : d6fdb0d8-2b0f-406b-afc6-68f60569ebdf
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\TroubleshootingPack
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Get-TroubleshootingPack, Get-TroubleshootingPack], [Invoke-TroubleshootingPack, 
+                    Invoke-TroubleshootingPack]}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : TrustedPlatformModule
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\TrustedPlatformModule\TrustedPlatformModule.psd1
+Description       : 
+Guid              : 17fc1f02-cff3-45fb-ac4f-126594c70b1e
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\TrustedPlatformModule
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Get-Tpm, Get-Tpm], [Initialize-Tpm, Initialize-Tpm], [Clear-Tpm, Clear-Tpm], [Unblock-Tpm, 
+                    Unblock-Tpm]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : UEV
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UEV\UEV.psd1
+Description       : User Experience Virtualization management commands.
+Guid              : d22e34c9-0a99-47d7-98f3-c0570257deb6
+Version           : 2.1.639.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UEV
+ModuleType        : Binary
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Clear-UevConfiguration, Clear-UevConfiguration], [Clear-UevAppxPackage, Clear-UevAppxPackage], 
+                    [Restore-UevBackup, Restore-UevBackup], [Set-UevTemplateProfile, Set-UevTemplateProfile]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : VMDirectStorage
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\VMDirectStorage\VMDirectStorage.psd1
+Description       : 
+Guid              : 62a0b63f-2a15-415f-919a-a48e87f830cc
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\VMDirectStorage
+ModuleType        : Script
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {[savm, savm], [Write-FileSystemCache, Write-FileSystemCache], [Remove-VMCheckpoint, 
+                    Remove-VMCheckpoint], [gvm, gvm]...}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-VMDirectVirtualDisk, Get-VMDirectVirtualDisk], [Add-VMDirectVirtualDisk, Add-VMDirectVirtualDisk], 
+                    [Remove-VMDirectVirtualDisk, Remove-VMDirectVirtualDisk]}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : VpnClient
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\VpnClient\VpnClient.psd1
+Description       : 
+Guid              : 3389cc73-daa3-4d25-bd50-b1730925d2df
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\VpnClient
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Add-VpnConnection, Add-VpnConnection], [Set-VpnConnection, Set-VpnConnection], [Remove-VpnConnection, 
+                    Remove-VpnConnection], [Get-VpnConnection, Get-VpnConnection]...}
+ExportedVariables : {}
+NestedModules     : {PS_VpnConnection_v1.0.0, PS_EapConfiguration_v1.0.0, PS_VpnConnectionProxy_v1.0, 
+                    PS_VpnServerAddress_v1.0...}
+
+
+Name              : Wdac
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Wdac\Wdac.psd1
+Description       : 
+Guid              : 78a7a38c-a446-43fe-b643-9abacf843112
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Wdac
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-OdbcDriver, Get-OdbcDriver], [Set-OdbcDriver, Set-OdbcDriver], [Get-OdbcDsn, Get-OdbcDsn], 
+                    [Add-OdbcDsn, Add-OdbcDsn]...}
+ExportedVariables : {}
+NestedModules     : {MSFT_OdbcDriverTask_v1.0, MSFT_OdbcDsnTask_v1.0, MSFT_OdbcPerfCounterTask_v1.0, 
+                    MSFT_WdacBidTraceTask_v1.0}
+
+
+Name              : Whea
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Whea\Whea.psd1
+Description       : 
+Guid              : b7bf4d74-f837-430e-810f-234f26021253
+Version           : 2.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\Whea
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Get-WheaMemoryPolicy, Get-WheaMemoryPolicy], [Set-WheaMemoryPolicy, Set-WheaMemoryPolicy]}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {Microsoft.Windows.Whea.WheaMemoryPolicy}
+
+
+Name              : WindowsDeveloperLicense
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\WindowsDeveloperLicense\WindowsDeveloperLicense.psd1
+Description       : 
+Guid              : 8ab5fe0d-db4a-49f2-93a3-040cf12840cc
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\WindowsDeveloperLicense
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Get-WindowsDeveloperLicense, Get-WindowsDeveloperLicense], [Unregister-WindowsDeveloperLicense, 
+                    Unregister-WindowsDeveloperLicense], [Show-WindowsDeveloperLicenseRegistration, 
+                    Show-WindowsDeveloperLicenseRegistration]}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : WindowsErrorReporting
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\WindowsErrorReporting\WindowsErrorReporting.psd1
+Description       : 
+Guid              : 4bc4ded7-249b-41ac-973f-83af4d25d82b
+Version           : 1.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\WindowsErrorReporting
+ModuleType        : Script
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Enable-WindowsErrorReporting, Enable-WindowsErrorReporting], [Disable-WindowsErrorReporting, 
+                    Disable-WindowsErrorReporting], [Get-WindowsErrorReporting, Get-WindowsErrorReporting]}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {Microsoft.WindowsErrorReporting.PowerShell}
+
+
+Name              : WindowsSearch
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\WindowsSearch\WindowsSearch.psd1
+Description       : 
+Guid              : 562c6233-eaee-4876-b36c-d6b1f256d4e6
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\WindowsSearch
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Get-WindowsSearchSetting, Get-WindowsSearchSetting], [Set-WindowsSearchSetting, 
+                    Set-WindowsSearchSetting]}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {Microsoft.WindowsSearch.Commands}
+
+
+Name              : WindowsUpdate
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\WindowsUpdate\WindowsUpdate.psd1
+Description       : 
+Guid              : db6155f2-9e89-45cf-876a-f15141294f5b
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\WindowsUpdate
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-WindowsUpdateLog, Get-WindowsUpdateLog]}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : WinHttpProxy
+Path              : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\WinHttpProxy\WinHttpProxy.psd1
+Description       : 
+Guid              : c3943a61-5d72-4472-a9d8-649f13fef7bf
+Version           : 1.0.0.0
+ModuleBase        : C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\WinHttpProxy
+ModuleType        : Script
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {}
+ExportedFunctions : {[Get-WinhttpProxy, Get-WinhttpProxy], [Export-WinhttpProxy, Export-WinhttpProxy], [Reset-WinhttpProxy, 
+                    Reset-WinhttpProxy], [Import-WinhttpProxy, Import-WinhttpProxy]...}
+ExportedVariables : {}
+NestedModules     : {}
+
+
+Name              : SQLPS
+Path              : C:\Program Files (x86)\Microsoft SQL Server\160\Tools\PowerShell\Modules\SQLPS\SQLPS.psd1
+Description       : This module allows SQL Server administrators and developers to automate server administration
+Guid              : 59832c13-c460-4d15-992a-c2dab1056a13
+Version           : 16.0
+ModuleBase        : C:\Program Files (x86)\Microsoft SQL Server\160\Tools\PowerShell\Modules\SQLPS
+ModuleType        : Manifest
+PrivateData       : 
+AccessMode        : ReadWrite
+ExportedAliases   : {}
+ExportedCmdlets   : {[Backup-SqlDatabase, Backup-SqlDatabase], [Invoke-PolicyEvaluation, Invoke-PolicyEvaluation], 
+                    [Restore-SqlDatabase, Restore-SqlDatabase], [Invoke-Sqlcmd, Invoke-Sqlcmd]...}
+ExportedFunctions : {}
+ExportedVariables : {}
+NestedModules     : {Microsoft.SqlServer.Management.PSSnapins, Microsoft.SqlServer.Management.PSProvider, SqlPsPostScript}
+
+
+Verb                : Add
+Noun                : BitsFile
+HelpFile            : Microsoft.BackgroundIntelligentTransfer.Management.dll-Help.xml
+PSSnapIn            : 
+Version             : 2.0.0.0
+ImplementingType    : Microsoft.BackgroundIntelligentTransfer.Management.AddBitsFileCommand
+Definition          : 
+                      Add-BitsFile [-BitsJob] <BitsJob[]> [-Source] <string[]> [[-Destination] <string[]>] [-WhatIf] 
+                      [-Confirm] [<CommonParameters>]
+                      
+DefaultParameterSet : AddFilesFromParams
+OutputType          : {}
+Options             : ReadOnly
+Name                : Add-BitsFile
+CommandType         : Cmdlet
+Source              : BitsTransfer
+Visibility          : Public
+ModuleName          : BitsTransfer
+Module              : BitsTransfer
+RemotingCapability  : PowerShell
+Parameters          : {[BitsJob, System.Management.Automation.ParameterMetadata], [Destination, 
+                      System.Management.Automation.ParameterMetadata], [Source, 
+                      System.Management.Automation.ParameterMetadata], [Verbose, 
+                      System.Management.Automation.ParameterMetadata]...}
+ParameterSets       : {[-BitsJob] <BitsJob[]> [-Source] <string[]> [[-Destination] <string[]>] [-WhatIf] [-Confirm] 
+                      [<CommonParameters>]}
+HelpUri             : https://learn.microsoft.com/powershell/module/bitstransfer/add-bitsfile?view=windowsserver2025-ps&wt.mc_
+                      id=ps-gethelp
+DLL                 : C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\Microsoft.BackgroundIntelligentTransfer.Management\v4.0_10.0.
+                      0.0__31bf3856ad364e35\Microsoft.BackgroundIntelligentTransfer.Management.dll
+
+
+Verb                : Complete
+Noun                : BitsTransfer
+HelpFile            : Microsoft.BackgroundIntelligentTransfer.Management.dll-Help.xml
+PSSnapIn            : 
+Version             : 2.0.0.0
+ImplementingType    : Microsoft.BackgroundIntelligentTransfer.Management.CompleteBitsTransferCommand
+Definition          : 
+                      Complete-BitsTransfer [-BitsJob] <BitsJob[]> [-WhatIf] [-Confirm] [<CommonParameters>]
+                      
+DefaultParameterSet : 
+OutputType          : {}
+Options             : ReadOnly
+Name                : Complete-BitsTransfer
+CommandType         : Cmdlet
+Source              : BitsTransfer
+Visibility          : Public
+ModuleName          : BitsTransfer
+Module              : BitsTransfer
+RemotingCapability  : PowerShell
+Parameters          : {[BitsJob, System.Management.Automation.ParameterMetadata], [Verbose, 
+                      System.Management.Automation.ParameterMetadata], [Debug, 
+                      System.Management.Automation.ParameterMetadata], [ErrorAction, 
+                      System.Management.Automation.ParameterMetadata]...}
+ParameterSets       : {[-BitsJob] <BitsJob[]> [-WhatIf] [-Confirm] [<CommonParameters>]}
+HelpUri             : https://learn.microsoft.com/powershell/module/bitstransfer/complete-bitstransfer?view=windowsserver2025-
+                      ps&wt.mc_id=ps-gethelp
+DLL                 : C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\Microsoft.BackgroundIntelligentTransfer.Management\v4.0_10.0.
+                      0.0__31bf3856ad364e35\Microsoft.BackgroundIntelligentTransfer.Management.dll
+
+
+Verb                : Get
+Noun                : BitsTransfer
+HelpFile            : Microsoft.BackgroundIntelligentTransfer.Management.dll-Help.xml
+PSSnapIn            : 
+Version             : 2.0.0.0
+ImplementingType    : Microsoft.BackgroundIntelligentTransfer.Management.GetBitsTransfer
+Definition          : 
+                      Get-BitsTransfer [[-Name] <string[]>] [-AllUsers] [<CommonParameters>]
+                      
+                      Get-BitsTransfer [-JobId] <guid[]> [<CommonParameters>]
+                      
+DefaultParameterSet : ListJobsByName
+OutputType          : {}
+Options             : ReadOnly
+Name                : Get-BitsTransfer
+CommandType         : Cmdlet
+Source              : BitsTransfer
+Visibility          : Public
+ModuleName          : BitsTransfer
+Module              : BitsTransfer
+RemotingCapability  : PowerShell
+Parameters          : {[Name, System.Management.Automation.ParameterMetadata], [AllUsers, 
+                      System.Management.Automation.ParameterMetadata], [JobId, 
+                      System.Management.Automation.ParameterMetadata], [Verbose, 
+                      System.Management.Automation.ParameterMetadata]...}
+ParameterSets       : {[[-Name] <string[]>] [-AllUsers] [<CommonParameters>], [-JobId] <guid[]> [<CommonParameters>]}
+HelpUri             : https://learn.microsoft.com/powershell/module/bitstransfer/get-bitstransfer?view=windowsserver2025-ps&wt
+                      .mc_id=ps-gethelp
+DLL                 : C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\Microsoft.BackgroundIntelligentTransfer.Management\v4.0_10.0.
+                      0.0__31bf3856ad364e35\Microsoft.BackgroundIntelligentTransfer.Management.dll
+
+
+Verb                : Remove
+Noun                : BitsTransfer
+HelpFile            : Microsoft.BackgroundIntelligentTransfer.Management.dll-Help.xml
+PSSnapIn            : 
+Version             : 2.0.0.0
+ImplementingType    : Microsoft.BackgroundIntelligentTransfer.Management.ClearBitsTransferCommand
+Definition          : 
+                      Remove-BitsTransfer [-BitsJob] <BitsJob[]> [-WhatIf] [-Confirm] [<CommonParameters>]
+                      
+DefaultParameterSet : 
+OutputType          : {}
+Options             : ReadOnly
+Name                : Remove-BitsTransfer
+CommandType         : Cmdlet
+Source              : BitsTransfer
+Visibility          : Public
+ModuleName          : BitsTransfer
+Module              : BitsTransfer
+RemotingCapability  : PowerShell
+Parameters          : {[BitsJob, System.Management.Automation.ParameterMetadata], [Verbose, 
+                      System.Management.Automation.ParameterMetadata], [Debug, 
+                      System.Management.Automation.ParameterMetadata], [ErrorAction, 
+                      System.Management.Automation.ParameterMetadata]...}
+ParameterSets       : {[-BitsJob] <BitsJob[]> [-WhatIf] [-Confirm] [<CommonParameters>]}
+HelpUri             : https://learn.microsoft.com/powershell/module/bitstransfer/remove-bitstransfer?view=windowsserver2025-ps
+                      &wt.mc_id=ps-gethelp
+DLL                 : C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\Microsoft.BackgroundIntelligentTransfer.Management\v4.0_10.0.
+                      0.0__31bf3856ad364e35\Microsoft.BackgroundIntelligentTransfer.Management.dll
+
+
+Verb                : Resume
+Noun                : BitsTransfer
+HelpFile            : Microsoft.BackgroundIntelligentTransfer.Management.dll-Help.xml
+PSSnapIn            : 
+Version             : 2.0.0.0
+ImplementingType    : Microsoft.BackgroundIntelligentTransfer.Management.ResumeBitsTransferCommand
+Definition          : 
+                      Resume-BitsTransfer [-BitsJob] <BitsJob[]> [-Asynchronous] [-WhatIf] [-Confirm] [<CommonParameters>]
+                      
+DefaultParameterSet : 
+OutputType          : {}
+Options             : ReadOnly
+Name                : Resume-BitsTransfer
+CommandType         : Cmdlet
+Source              : BitsTransfer
+Visibility          : Public
+ModuleName          : BitsTransfer
+Module              : BitsTransfer
+RemotingCapability  : PowerShell
+Parameters          : {[BitsJob, System.Management.Automation.ParameterMetadata], [Asynchronous, 
+                      System.Management.Automation.ParameterMetadata], [Verbose, 
+                      System.Management.Automation.ParameterMetadata], [Debug, 
+                      System.Management.Automation.ParameterMetadata]...}
+ParameterSets       : {[-BitsJob] <BitsJob[]> [-Asynchronous] [-WhatIf] [-Confirm] [<CommonParameters>]}
+HelpUri             : https://learn.microsoft.com/powershell/module/bitstransfer/resume-bitstransfer?view=windowsserver2025-ps
+                      &wt.mc_id=ps-gethelp
+DLL                 : C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\Microsoft.BackgroundIntelligentTransfer.Management\v4.0_10.0.
+                      0.0__31bf3856ad364e35\Microsoft.BackgroundIntelligentTransfer.Management.dll
+
+
+Verb                : Set
+Noun                : BitsTransfer
+HelpFile            : Microsoft.BackgroundIntelligentTransfer.Management.dll-Help.xml
+PSSnapIn            : 
+Version             : 2.0.0.0
+ImplementingType    : Microsoft.BackgroundIntelligentTransfer.Management.SetBitsTransferCommand
+Definition          : 
+                      Set-BitsTransfer [-BitsJob] <BitsJob[]> [-DisplayName <string>] [-Priority <string>] [-Description 
+                      <string>] [-Dynamic <switch>] [-CustomHeadersWriteOnly] [-HttpMethod <string>] [-ProxyAuthentication 
+                      <string>] [-RetryInterval <int>] [-RetryTimeout <int>] [-MaxDownloadTime <int>] [-TransferPolicy 
+                      <CostStates>] [-ACLFlags <ACLFlagValue>] [-SecurityFlags <SecurityFlagValue>] [-UseStoredCredential 
+                      <AuthenticationTargetValue>] [-Credential <pscredential>] [-ProxyCredential <pscredential>] 
+                      [-Authentication <string>] [-SetOwnerToCurrentUser] [-ProxyUsage <string>] [-ProxyList <uri[]>] 
+                      [-ProxyBypass <string[]>] [-CustomHeaders <string[]>] [-NotifyFlags <NotifyFlagValue>] [-NotifyCmdLine 
+                      <string[]>] [-CertStoreLocation <CertStoreLocationValue>] [-CertStoreName <string>] [-CertHash 
+                      <byte[]>] [-WhatIf] [-Confirm] [<CommonParameters>]
+                      
+DefaultParameterSet : 
+OutputType          : {}
+Options             : ReadOnly
+Name                : Set-BitsTransfer
+CommandType         : Cmdlet
+Source              : BitsTransfer
+Visibility          : Public
+ModuleName          : BitsTransfer
+Module              : BitsTransfer
+RemotingCapability  : PowerShell
+Parameters          : {[BitsJob, System.Management.Automation.ParameterMetadata], [DisplayName, 
+                      System.Management.Automation.ParameterMetadata], [Priority, 
+                      System.Management.Automation.ParameterMetadata], [Description, 
+                      System.Management.Automation.ParameterMetadata]...}
+ParameterSets       : {[-BitsJob] <BitsJob[]> [-DisplayName <string>] [-Priority <string>] [-Description <string>] [-Dynamic 
+                      <switch>] [-CustomHeadersWriteOnly] [-HttpMethod <string>] [-ProxyAuthentication <string>] 
+                      [-RetryInterval <int>] [-RetryTimeout <int>] [-MaxDownloadTime <int>] [-TransferPolicy <CostStates>] 
+                      [-ACLFlags <ACLFlagValue>] [-SecurityFlags <SecurityFlagValue>] [-UseStoredCredential 
+                      <AuthenticationTargetValue>] [-Credential <pscredential>] [-ProxyCredential <pscredential>] 
+                      [-Authentication <string>] [-SetOwnerToCurrentUser] [-ProxyUsage <string>] [-ProxyList <uri[]>] 
+                      [-ProxyBypass <string[]>] [-CustomHeaders <string[]>] [-NotifyFlags <NotifyFlagValue>] [-NotifyCmdLine 
+                      <string[]>] [-CertStoreLocation <CertStoreLocationValue>] [-CertStoreName <string>] [-CertHash 
+                      <byte[]>] [-WhatIf] [-Confirm] [<CommonParameters>]}
+HelpUri             : https://learn.microsoft.com/powershell/module/bitstransfer/set-bitstransfer?view=windowsserver2025-ps&wt
+                      .mc_id=ps-gethelp
+DLL                 : C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\Microsoft.BackgroundIntelligentTransfer.Management\v4.0_10.0.
+                      0.0__31bf3856ad364e35\Microsoft.BackgroundIntelligentTransfer.Management.dll
+
+
+Verb                : Start
+Noun                : BitsTransfer
+HelpFile            : Microsoft.BackgroundIntelligentTransfer.Management.dll-Help.xml
+PSSnapIn            : 
+Version             : 2.0.0.0
+ImplementingType    : Microsoft.BackgroundIntelligentTransfer.Management.NewBitsTransferCommand
+Definition          : 
+                      Start-BitsTransfer [-Source] <string[]> [[-Destination] <string[]>] [-Asynchronous] [-Dynamic] 
+                      [-CustomHeadersWriteOnly] [-Authentication <string>] [-Credential <pscredential>] [-Description 
+                      <string>] [-HttpMethod <string>] [-DisplayName <string>] [-Priority <string>] [-TransferPolicy 
+                      <CostStates>] [-ACLFlags <ACLFlagValue>] [-SecurityFlags <SecurityFlagValue>] [-UseStoredCredential 
+                      <AuthenticationTargetValue>] [-ProxyAuthentication <string>] [-ProxyBypass <string[]>] 
+                      [-ProxyCredential <pscredential>] [-ProxyList <uri[]>] [-ProxyUsage <string>] [-RetryInterval <int>] 
+                      [-RetryTimeout <int>] [-MaxDownloadTime <int>] [-Suspended] [-TransferType <string>] [-CustomHeaders 
+                      <string[]>] [-NotifyFlags <NotifyFlagValue>] [-NotifyCmdLine <string[]>] [-CertStoreLocation 
+                      <CertStoreLocationValue>] [-CertStoreName <string>] [-CertHash <byte[]>] [-WhatIf] [-Confirm] 
+                      [<CommonParameters>]
+                      
+DefaultParameterSet : NewFromParams
+OutputType          : {}
+Options             : ReadOnly
+Name                : Start-BitsTransfer
+CommandType         : Cmdlet
+Source              : BitsTransfer
+Visibility          : Public
+ModuleName          : BitsTransfer
+Module              : BitsTransfer
+RemotingCapability  : PowerShell
+Parameters          : {[Asynchronous, System.Management.Automation.ParameterMetadata], [Dynamic, 
+                      System.Management.Automation.ParameterMetadata], [CustomHeadersWriteOnly, 
+                      System.Management.Automation.ParameterMetadata], [Authentication, 
+                      System.Management.Automation.ParameterMetadata]...}
+ParameterSets       : {[-Source] <string[]> [[-Destination] <string[]>] [-Asynchronous] [-Dynamic] [-CustomHeadersWriteOnly] 
+                      [-Authentication <string>] [-Credential <pscredential>] [-Description <string>] [-HttpMethod <string>] 
+                      [-DisplayName <string>] [-Priority <string>] [-TransferPolicy <CostStates>] [-ACLFlags <ACLFlagValue>] 
+                      [-SecurityFlags <SecurityFlagValue>] [-UseStoredCredential <AuthenticationTargetValue>] 
+                      [-ProxyAuthentication <string>] [-ProxyBypass <string[]>] [-ProxyCredential <pscredential>] [-ProxyList 
+                      <uri[]>] [-ProxyUsage <string>] [-RetryInterval <int>] [-RetryTimeout <int>] [-MaxDownloadTime <int>] 
+                      [-Suspended] [-TransferType <string>] [-CustomHeaders <string[]>] [-NotifyFlags <NotifyFlagValue>] 
+                      [-NotifyCmdLine <string[]>] [-CertStoreLocation <CertStoreLocationValue>] [-CertStoreName <string>] 
+                      [-CertHash <byte[]>] [-WhatIf] [-Confirm] [<CommonParameters>]}
+HelpUri             : https://learn.microsoft.com/powershell/module/bitstransfer/start-bitstransfer?view=windowsserver2025-ps&
+                      wt.mc_id=ps-gethelp
+DLL                 : C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\Microsoft.BackgroundIntelligentTransfer.Management\v4.0_10.0.
+                      0.0__31bf3856ad364e35\Microsoft.BackgroundIntelligentTransfer.Management.dll
+
+
+Verb                : Suspend
+Noun                : BitsTransfer
+HelpFile            : Microsoft.BackgroundIntelligentTransfer.Management.dll-Help.xml
+PSSnapIn            : 
+Version             : 2.0.0.0
+ImplementingType    : Microsoft.BackgroundIntelligentTransfer.Management.SuspendBitsTransferCommand
+Definition          : 
+                      Suspend-BitsTransfer [-BitsJob] <BitsJob[]> [-WhatIf] [-Confirm] [<CommonParameters>]
+                      
+DefaultParameterSet : 
+OutputType          : {}
+Options             : ReadOnly
+Name                : Suspend-BitsTransfer
+CommandType         : Cmdlet
+Source              : BitsTransfer
+Visibility          : Public
+ModuleName          : BitsTransfer
+Module              : BitsTransfer
+RemotingCapability  : PowerShell
+Parameters          : {[BitsJob, System.Management.Automation.ParameterMetadata], [Verbose, 
+                      System.Management.Automation.ParameterMetadata], [Debug, 
+                      System.Management.Automation.ParameterMetadata], [ErrorAction, 
+                      System.Management.Automation.ParameterMetadata]...}
+ParameterSets       : {[-BitsJob] <BitsJob[]> [-WhatIf] [-Confirm] [<CommonParameters>]}
+HelpUri             : https://learn.microsoft.com/powershell/module/bitstransfer/suspend-bitstransfer?view=windowsserver2025-p
+                      s&wt.mc_id=ps-gethelp
+DLL                 : C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\Microsoft.BackgroundIntelligentTransfer.Management\v4.0_10.0.
+                      0.0__31bf3856ad364e35\Microsoft.BackgroundIntelligentTransfer.Management.dll
+
+
+Name        : Get-Date
+CommandType : Cmdlet
+Module      : Microsoft.PowerShell.Utility
+PSSnapIn    : 
+
+
+Name        : Get-Help
+CommandType : Cmdlet
+Module      : 
+PSSnapIn    : Microsoft.PowerShell.Core
+
+2025-08-10 20:21:23
+
+

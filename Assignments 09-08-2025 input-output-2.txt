@@ -1,0 +1,41 @@
+----------------------------------------------------------------Assignment Input--------------------------------------------------------
+
+# Script: SystemInfo.ps1
+# Author: Sooraj B
+# Description: Displays basic system information
+
+Write-Host "Sooraj B"
+Write-Host "--------------------"
+
+$COMPUTERNAME = $env:COMPUTERNAME
+$os = Get-CimInstance Win32_OperatingSystem
+$cpu = Get-CimInstance Win32_Processor
+
+Write-Host "Computer Name: $COMPUTERNAME"
+Write-Host "Operating System: $($os.Caption)"
+Write-Host "CPU: $($cpu.Name)"
+
+----------------------------------------------------------------Assignment Output--------------------------------------------------------
+
+PS C:\WINDOWS\system32> # Script: SystemInfo.ps1
+# Author: Sooraj B
+# Description: Displays basic system information
+
+Write-Host "Sooraj B"
+Write-Host "--------------------"
+
+$COMPUTERNAME = $env:COMPUTERNAME
+$os = Get-CimInstance Win32_OperatingSystem
+$cpu = Get-CimInstance Win32_Processor
+
+Write-Host "Computer Name: $COMPUTERNAME"
+Write-Host "Operating System: $($os.Caption)"
+Write-Host "CPU: $($cpu.Name)"
+
+Sooraj B
+--------------------
+Computer Name: NEC0822051
+Operating System: Microsoft Windows 11 Pro
+CPU: AMD Athlon Silver 3050U with Radeon Graphics   
+
+PS C:\WINDOWS\system32> 
